@@ -1,0 +1,90 @@
+2026-02-12 23:20:27,587 - DigitalFTE - INFO - ============================================================
+2026-02-12 23:20:27,588 - DigitalFTE - INFO - Digital FTE Inbox Watcher Starting
+2026-02-12 23:20:27,589 - DigitalFTE - INFO - Digital FTE Inbox Watcher Starting
+2026-02-12 23:20:27,590 - DigitalFTE - INFO - ============================================================
+2026-02-12 23:20:27,590 - DigitalFTE - INFO - ============================================================
+2026-02-12 23:20:28,082 - DigitalFTE - ERROR - Failed to verify Claude Code CLI: [WinError 2] The system cannot find the file specified
+2026-02-12 23:20:28,082 - DigitalFTE - ERROR - Failed to verify Claude Code CLI: [WinError 2] The system cannot find the file specified
+2026-02-12 23:20:28,083 - DigitalFTE - ERROR - Environment verification failed. Exiting.
+2026-02-12 23:20:28,191 - DigitalFTE - ERROR - Environment verification failed. Exiting.
+2026-02-13 00:00:30,680 - DigitalFTE - INFO - ============================================================
+2026-02-13 00:00:30,705 - DigitalFTE - INFO - Digital FTE Inbox Watcher Starting
+2026-02-13 00:00:30,705 - DigitalFTE - INFO - ============================================================
+2026-02-13 00:00:30,773 - DigitalFTE - ERROR - Failed to verify Claude Code CLI: [WinError 2] The system cannot find the file specified
+2026-02-13 00:00:30,774 - DigitalFTE - ERROR - Environment verification failed. Exiting.
+2026-02-13 01:05:25,311 - DigitalFTE - INFO - ============================================================
+2026-02-13 01:05:25,570 - DigitalFTE - INFO - Digital FTE Inbox Watcher Starting
+2026-02-13 01:05:25,570 - DigitalFTE - INFO - ============================================================
+2026-02-13 01:05:25,992 - DigitalFTE - WARNING - Claude Code CLI not available: [WinError 2] The system cannot find the file specified
+2026-02-13 01:05:25,995 - DigitalFTE - WARNING - Watcher will run but skip automatic triage
+2026-02-13 01:05:25,996 - DigitalFTE - WARNING - Install Claude CLI from: https://claude.ai/download
+2026-02-13 01:05:25,997 - DigitalFTE - INFO - Monitoring: C:\Users\SEVEN86 COMPUTES\hackthon-0\AI_Employee_Vault\Inbox
+2026-02-13 01:05:26,214 - DigitalFTE - INFO - Watcher active. Press Ctrl+C to stop.
+2026-02-13 01:07:01,319 - DigitalFTE - INFO - New file detected: chat.md
+2026-02-13 01:07:03,381 - DigitalFTE - INFO - Processing: chat.md
+2026-02-13 01:07:03,383 - DigitalFTE - INFO - Read file: chat.md
+2026-02-13 01:07:03,397 - DigitalFTE - WARNING - Claude CLI not available - using default triage for chat.md
+2026-02-13 01:07:03,401 - DigitalFTE - INFO - Read file: chat.md
+2026-02-13 01:07:03,562 - DigitalFTE - INFO - Wrote file: chat.md
+2026-02-13 01:07:08,792 - DigitalFTE - INFO - Read file: Dashboard.md
+2026-02-13 01:07:08,798 - DigitalFTE - INFO - Wrote file: Dashboard.md
+2026-02-13 01:43:49,438 - DigitalFTE - INFO - Shutdown requested...
+2026-02-13 01:43:49,443 - DigitalFTE - INFO - Digital FTE Inbox Watcher stopped.
+2026-02-13 01:46:19,273 - DigitalFTE - INFO - ============================================================
+2026-02-13 01:46:19,274 - DigitalFTE - INFO - Digital FTE Inbox Watcher Starting
+2026-02-13 01:46:19,275 - DigitalFTE - INFO - ============================================================
+2026-02-13 01:46:19,339 - DigitalFTE - WARNING - Claude Code CLI not available: [WinError 2] The system cannot find the file specified
+2026-02-13 01:46:19,341 - DigitalFTE - WARNING - Watcher will run but skip automatic triage
+2026-02-13 01:46:19,343 - DigitalFTE - WARNING - Install Claude CLI from: https://claude.ai/download
+2026-02-13 01:46:19,355 - DigitalFTE - INFO - Monitoring: C:\Users\SEVEN86 COMPUTES\hackthon-0\AI_Employee_Vault\Inbox
+2026-02-13 01:46:19,393 - DigitalFTE - INFO - Watcher active. Press Ctrl+C to stop.
+2026-02-13 02:06:26,198 - DigitalFTE - INFO - Shutdown requested...
+2026-02-13 02:06:26,200 - DigitalFTE - INFO - Digital FTE Inbox Watcher stopped.
+2026-02-13 02:06:28,983 - DigitalFTE - INFO - ============================================================
+2026-02-13 02:06:28,998 - DigitalFTE - INFO - Digital FTE Inbox Watcher Starting
+2026-02-13 02:06:28,999 - DigitalFTE - INFO - ============================================================
+2026-02-13 02:06:29,024 - DigitalFTE - WARNING - Claude Code CLI not available: [WinError 2] The system cannot find the file specified
+2026-02-13 02:06:29,031 - DigitalFTE - WARNING - Watcher will run but skip automatic triage
+2026-02-13 02:06:29,037 - DigitalFTE - WARNING - Install Claude CLI from: https://claude.ai/download
+2026-02-13 02:06:29,043 - DigitalFTE - INFO - Monitoring: C:\Users\SEVEN86 COMPUTES\hackthon-0\AI_Employee_Vault\Inbox
+2026-02-13 02:06:29,061 - DigitalFTE - INFO - Watcher active. Press Ctrl+C to stop.
+2026-02-13 02:06:37,742 - DigitalFTE - INFO - New file detected: chat.md
+2026-02-13 02:06:40,256 - DigitalFTE - INFO - Processing: chat.md
+2026-02-13 02:06:40,258 - DigitalFTE - INFO - Read file: chat.md
+2026-02-13 02:06:40,267 - DigitalFTE - WARNING - Claude CLI not available - using default triage for chat.md
+2026-02-13 02:06:40,270 - DigitalFTE - INFO - Read file: chat.md
+2026-02-13 02:06:40,277 - DigitalFTE - INFO - Wrote file: chat.md
+2026-02-13 02:06:40,311 - DigitalFTE - INFO - Moved chat.md -> Needs_Action/
+2026-02-13 02:06:40,481 - DigitalFTE - INFO - Read file: Dashboard.md
+2026-02-13 02:06:40,650 - DigitalFTE - INFO - Wrote file: Dashboard.md
+2026-02-13 02:08:10,185 - DigitalFTE - INFO - Shutdown requested...
+2026-02-13 02:08:10,187 - DigitalFTE - INFO - Digital FTE Inbox Watcher stopped.
+2026-02-13 02:08:38,922 - DigitalFTE - INFO - ============================================================
+2026-02-13 02:08:38,928 - DigitalFTE - INFO - Digital FTE Inbox Watcher Starting
+2026-02-13 02:08:38,929 - DigitalFTE - INFO - ============================================================
+2026-02-13 02:08:38,951 - DigitalFTE - WARNING - Claude Code CLI not available: [WinError 2] The system cannot find the file specified
+2026-02-13 02:08:38,951 - DigitalFTE - WARNING - Watcher will run but skip automatic triage
+2026-02-13 02:08:38,953 - DigitalFTE - WARNING - Install Claude CLI from: https://claude.ai/download
+2026-02-13 02:08:38,954 - DigitalFTE - INFO - Monitoring: C:\Users\SEVEN86 COMPUTES\hackthon-0\AI_Employee_Vault\Inbox
+2026-02-13 02:08:38,968 - DigitalFTE - INFO - Watcher active. Press Ctrl+C to stop.
+2026-02-13 02:09:05,078 - DigitalFTE - INFO - Ignored non-markdown file: Hackathon II - Todo Spec-Driven Development.pdf
+2026-02-13 02:09:21,513 - DigitalFTE - INFO - Shutdown requested...
+2026-02-13 02:09:21,516 - DigitalFTE - INFO - Digital FTE Inbox Watcher stopped.
+2026-02-13 02:23:44,484 - DigitalFTE - INFO - ============================================================
+2026-02-13 02:23:44,582 - DigitalFTE - INFO - Digital FTE Inbox Watcher Starting
+2026-02-13 02:23:44,645 - DigitalFTE - INFO - ============================================================
+2026-02-13 02:23:44,760 - DigitalFTE - WARNING - Claude Code CLI not available: [WinError 2] The system cannot find the file specified
+2026-02-13 02:23:44,788 - DigitalFTE - WARNING - Watcher will run but skip automatic triage
+2026-02-13 02:23:44,864 - DigitalFTE - WARNING - Install Claude CLI from: https://claude.ai/download
+2026-02-13 02:23:44,935 - DigitalFTE - INFO - Monitoring: C:\Users\SEVEN86 COMPUTES\hackthon-0\AI_Employee_Vault\Inbox
+2026-02-13 02:23:45,185 - DigitalFTE - INFO - Watcher active. Press Ctrl+C to stop.
+2026-02-13 02:23:52,865 - DigitalFTE - INFO - New file detected: chat.md
+2026-02-13 02:23:55,777 - DigitalFTE - INFO - Processing: chat.md
+2026-02-13 02:23:55,781 - DigitalFTE - INFO - Read file: chat.md
+2026-02-13 02:23:55,789 - DigitalFTE - WARNING - Claude CLI not available - using default triage for chat.md
+2026-02-13 02:23:55,791 - DigitalFTE - INFO - Read file: chat.md
+2026-02-13 02:23:55,830 - DigitalFTE - INFO - Wrote file: chat.md
+2026-02-13 02:23:55,902 - DigitalFTE - INFO - Moved chat.md -> Needs_Action/
+2026-02-13 02:23:56,168 - DigitalFTE - INFO - Read file: Dashboard.md
+2026-02-13 02:23:56,173 - DigitalFTE - INFO - Wrote file: Dashboard.md
+2026-02-13 02:24:14,399 - DigitalFTE - INFO - Ignored non-markdown file: Hackathon II - Todo Spec-Driven Development.pdf

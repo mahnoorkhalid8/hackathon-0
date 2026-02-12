@@ -1,0 +1,4 @@
+# Inbox Watcher Requirements
+
+watchdog>=4.0.0
+pyyaml>=6.0.1

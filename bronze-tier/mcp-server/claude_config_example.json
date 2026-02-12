@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "digital-fte": {
+      "command": "node",
+      "args": [
+        "REPLACE_WITH_ABSOLUTE_PATH/hackthon-0/mcp-server/index.js"
+      ],
+      "env": {}
+    }
+  }
+}
