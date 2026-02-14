@@ -178,20 +178,30 @@ class AgentOrchestrator:
 
         self.logger.info("Initializing Gmail watcher service...")
 
-        # Load configuration
-        config_path = Path("config/gmail_watcher_config.yaml")
-        if not config_path.exists():
-            raise FileNotFoundError(f"Config not found: {config_path}")
+        try:
+            from gmail_watcher_service import GmailWatcherService, GmailWatcherConfig
 
-        # Initialize service
-        service = GmailWatcherService(str(config_path))
+            # Create config with separate token file for reading emails
+            config = GmailWatcherConfig(
+                inbox_path="memory/Inbox",
+                credentials_file="gmail_test/credentials.json",
+                token_file="gmail_test/token_watcher.json",  # Separate token for reading
+                log_dir="logs"
+            )
 
-        # Check for new emails
-        self.logger.info("Checking for unread emails...")
-        result = service.check_and_process_emails()
+            # Initialize service
+            service = GmailWatcherService(config)
 
-        self.logger.info(f"Gmail watcher result: {result}")
-        return result
+            # Check for new emails once
+            self.logger.info("Checking for unread emails...")
+            result = service.check_once()
+
+            self.logger.info(f"Gmail watcher result: {result}")
+            return result
+
+        except Exception as e:
+            self.logger.error(f"Gmail watcher error: {e}")
+            return {"success": False, "error": str(e)}
 
     def run_ceo_report(self) -> Dict[str, Any]:
         """Generate and send CEO report."""

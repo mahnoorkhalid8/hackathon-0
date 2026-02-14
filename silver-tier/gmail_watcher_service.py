@@ -124,11 +124,13 @@ class GmailClient:
             token_file = Path(self.config.token_file)
             credentials_file = Path(self.config.credentials_file)
 
-            # Load existing token
+            # Load existing token (JSON format)
             if token_file.exists():
                 self.logger.info("Loading existing credentials...")
-                with open(token_file, 'rb') as token:
-                    creds = pickle.load(token)
+                creds = Credentials.from_authorized_user_file(
+                    str(token_file),
+                    self.config.scopes
+                )
 
             # Refresh or get new credentials
             if not creds or not creds.valid:
@@ -148,11 +150,11 @@ class GmailClient:
                     )
                     creds = flow.run_local_server(port=0)
 
-                # Save credentials
+                # Save credentials (JSON format)
                 self.logger.info("Saving credentials...")
                 token_file.parent.mkdir(parents=True, exist_ok=True)
-                with open(token_file, 'wb') as token:
-                    pickle.dump(creds, token)
+                with open(token_file, 'w') as token:
+                    token.write(creds.to_json())
 
             # Build service
             self.credentials = creds
@@ -515,6 +517,45 @@ class GmailWatcherService:
         self.running = False
         self.start_time: Optional[datetime] = None
         self.check_count = 0
+
+    def check_once(self) -> Dict[str, Any]:
+        """Check for emails once and return results."""
+        self.logger.info("Authenticating with Gmail API...")
+
+        if not self.gmail_client.authenticate():
+            self.logger.error("Authentication failed")
+            return {"success": False, "error": "Authentication failed"}
+
+        self.logger.info("Checking for unread emails...")
+
+        try:
+            # Get unread emails
+            emails = self.gmail_client.get_unread_emails()
+
+            if not emails:
+                self.logger.info("No unread emails found")
+                return {"success": True, "processed": 0, "message": "No unread emails"}
+
+            # Process each email
+            processed = 0
+            for email in emails:
+                success = self.email_processor.process_email(email)
+                if success:
+                    processed += 1
+                    if self.config.mark_as_read:
+                        self.gmail_client.mark_as_read(email['id'])
+
+            self.logger.info(f"Processed {processed}/{len(emails)} email(s)")
+            return {
+                "success": True,
+                "processed": processed,
+                "total": len(emails),
+                "message": f"Processed {processed} email(s)"
+            }
+
+        except Exception as e:
+            self.logger.error(f"Error checking emails: {e}", exc_info=True)
+            return {"success": False, "error": str(e)}
 
     def start(self):
         """Start the Gmail watcher service."""
