@@ -1,0 +1,25 @@
+# Gmail Watcher Configuration
+
+# Paths
+inbox_path: "vault/Inbox"
+credentials_file: "config/gmail_credentials.json"
+token_file: "config/gmail_token.pickle"
+log_dir: "logs"
+
+# Gmail settings
+check_interval: 120  # Check every 2 minutes (in seconds)
+max_results: 10      # Maximum emails to fetch per check
+mark_as_read: false  # Whether to mark emails as read after processing
+
+# OAuth2 scopes
+scopes:
+  - "https://www.googleapis.com/auth/gmail.readonly"
+
+# Logging
+log_level: "INFO"  # DEBUG, INFO, WARNING, ERROR, CRITICAL
+log_format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+
+# Advanced settings (optional)
+# query_filter: "is:unread"  # Custom Gmail query
+# process_attachments: false  # Save attachments (future feature)
+# max_body_length: 10000      # Truncate long emails

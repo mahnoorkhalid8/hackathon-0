@@ -1,0 +1,35 @@
+# File Watcher Service - Configuration
+
+# Paths
+inbox_path: "vault/Inbox"
+log_dir: "logs"
+
+# File patterns to watch
+watch_patterns:
+  - "*.md"
+  - "*.txt"
+
+# File patterns to ignore
+ignore_patterns:
+  - "*.tmp"
+  - ".*"        # Hidden files
+  - "*~"        # Backup files
+  - "*.swp"     # Vim swap files
+
+# Behavior settings
+debounce_seconds: 2.0          # Ignore duplicate events within this window
+max_queue_size: 100            # Maximum number of files in processing queue
+processing_timeout: 300        # Timeout for processing a single file (seconds)
+
+# Logging configuration
+log_level: "INFO"              # DEBUG, INFO, WARNING, ERROR, CRITICAL
+log_format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+log_max_bytes: 10485760        # 10MB
+log_backup_count: 5            # Keep 5 backup log files
+
+# Agent integration
+agent_enabled: true
+agent_module: "iterative_reasoning_engine"
+agent_config:
+  plans_dir: "memory/plans"
+  max_concurrent_tasks: 3

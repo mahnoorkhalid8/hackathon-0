@@ -1,0 +1,31 @@
+# MCP Server Configuration
+
+# MCP servers available for external actions
+servers:
+  web_search:
+    enabled: false
+    type: "web_search"
+    endpoint: "http://localhost:3000"
+    timeout: 30
+    description: "Web search and information retrieval"
+
+  api_caller:
+    enabled: false
+    type: "api"
+    endpoint: "http://localhost:3001"
+    timeout: 30
+    description: "Generic API calling capability"
+
+  data_fetcher:
+    enabled: false
+    type: "data"
+    endpoint: "http://localhost:3002"
+    timeout: 30
+    description: "External data fetching and processing"
+
+# MCP call settings
+settings:
+  max_retries: 2
+  retry_delay: 5  # seconds
+  require_approval: true  # All MCP calls require approval by default
+  log_all_calls: true

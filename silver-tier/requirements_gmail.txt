@@ -1,0 +1,10 @@
+# Gmail Watcher - Required Libraries
+
+# Core Gmail API libraries
+google-api-python-client>=2.100.0
+google-auth-httplib2>=0.1.1
+google-auth-oauthlib>=1.1.0
+
+# Already included in main requirements.txt:
+# pyyaml>=6.0.1
+# watchdog>=3.0.0

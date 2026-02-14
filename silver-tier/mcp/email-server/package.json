@@ -1,0 +1,33 @@
+{
+  "name": "silver-tier-email-mcp-server",
+  "version": "1.0.0",
+  "description": "MCP server for Silver Tier Digital FTE email functionality",
+  "main": "src/server.js",
+  "type": "module",
+  "engines": {
+    "node": ">=24.0.0"
+  },
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js",
+    "test": "node src/test.js"
+  },
+  "keywords": [
+    "mcp",
+    "email",
+    "nodemailer",
+    "digital-fte"
+  ],
+  "author": "Digital FTE System",
+  "license": "MIT",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^0.5.0",
+    "nodemailer": "^6.9.8",
+    "dotenv": "^16.4.1",
+    "winston": "^3.11.0",
+    "joi": "^17.12.0"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0"
+  }
+}

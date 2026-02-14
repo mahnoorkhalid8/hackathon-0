@@ -1,0 +1,58 @@
+# Silver Tier Digital FTE Configuration
+
+system:
+  name: "Silver-Tier-FTE"
+  version: "1.0.0"
+  log_level: "INFO"
+
+memory:
+  vault_path: "./memory"
+  dashboard: "Dashboard.md"
+  handbook: "Company_Handbook.md"
+  plan: "Plan.md"
+  inbox: "Inbox"
+  needs_action: "Needs_Action"
+  needs_approval: "Needs_Approval"
+  done: "Done"
+  skills: "SKILLS"
+
+watchers:
+  enabled:
+    - file_watcher
+    - time_watcher
+
+  file_watcher:
+    enabled: true
+    watch_paths:
+      - "./memory/Inbox"
+    poll_interval: 5  # seconds
+    file_patterns:
+      - "*.md"
+
+  time_watcher:
+    enabled: true
+    check_interval: 60  # seconds
+    schedule_file: "./scheduler/schedule_config.yaml"
+
+  email_watcher:
+    enabled: false
+    poll_interval: 300  # seconds
+
+  webhook_watcher:
+    enabled: false
+    port: 8080
+    host: "localhost"
+
+orchestrator:
+  max_concurrent_tasks: 3
+  event_dedup_window: 30  # seconds
+  reasoning_timeout: 120  # seconds
+
+approval:
+  rules_file: "./config/approval_rules.yaml"
+  default_action: "require_approval"
+
+mcp:
+  config_file: "./mcp/mcp_config.yaml"
+  timeout: 30  # seconds
+  max_retries: 2
