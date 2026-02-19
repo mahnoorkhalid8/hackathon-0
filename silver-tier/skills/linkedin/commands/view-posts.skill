@@ -1,0 +1,102 @@
+# Skill: view-posts
+
+View recent LinkedIn posts and their status.
+
+## Description
+This skill allows you to view recent LinkedIn posts from log files, including their status and timestamp information.
+
+## Parameters
+
+### Optional
+- `days` (integer): Number of days to look back (default: 7)
+- `limit` (integer): Maximum number of posts to show (default: 10)
+
+## Usage
+
+### Command Line
+```bash
+python scripts/view_posts.py
+```
+
+### Python API
+```python
+from scripts.view_posts import view_linkedin_posts
+
+posts = view_linkedin_posts(days=7, limit=10)
+```
+
+### Interactive Mode
+```bash
+python scripts/view_posts.py --days 14 --limit 20
+```
+
+## Examples
+
+### View Recent Posts
+```bash
+python scripts/view_posts.py
+```
+
+### View Posts from Last 14 Days
+```bash
+python scripts/view_posts.py --days 14
+```
+
+### View Top 5 Posts
+```bash
+python scripts/view_posts.py --limit 5
+```
+
+### View Last 30 Days, Top 20 Posts
+```bash
+python scripts/view_posts.py --days 30 --limit 20
+```
+
+### Using Python API
+```python
+from scripts.view_posts import view_linkedin_posts
+
+# Get last 14 days of posts, maximum 15
+result = view_linkedin_posts(days=14, limit=15)
+
+if result['success']:
+    print(f"Found {result['total']} total posts")
+    for post in result['posts']:
+        print(f"- {post['timestamp']}: {post['content_preview'][:50]}...")
+else:
+    print(f"Error: {result['error']}")
+```
+
+## Return Value
+
+Returns a dictionary with:
+- `success` (boolean): Whether the operation was successful
+- `posts` (list): List of recent posts with details
+- `total` (integer): Total number of posts found
+- `message` (string): Summary message
+- `error` (string): Error message if failed
+
+## Requirements
+
+- Access to LinkedIn post log files in the Logs directory
+- Python packages: python-dotenv
+
+## Features
+
+- **Date filtering**: Look back specific number of days
+- **Limit results**: Control how many posts to display
+- **Chronological order**: Posts sorted by timestamp (newest first)
+- **Log aggregation**: Gathers from multiple log files if needed
+
+## Error Handling
+
+- Missing log directory: Returns appropriate message
+- Invalid date format: Returns error with details
+- File read errors: Returns error with specific file information
+
+## Notes
+
+- Posts are read from JSON log files in the Logs directory
+- Only posts with 'linkedin' in the filename are included
+- Date format in filenames: YYYY-MM-DD_linkedin.json
+- Results are sorted by timestamp, most recent first

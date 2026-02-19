@@ -1,0 +1,108 @@
+# Skill: get-profile
+
+Get LinkedIn profile information using the API.
+
+## Description
+This skill allows you to retrieve your LinkedIn profile information including name, email, and other profile details using the LinkedIn API.
+
+## Parameters
+
+### Optional
+- `network` (boolean): Whether to get network information instead of basic profile (default: false)
+
+## Usage
+
+### Command Line
+```bash
+python scripts/get_profile.py
+```
+
+### Python API
+```python
+from scripts.get_profile import get_linkedin_profile, get_linkedin_network_info
+
+profile = get_linkedin_profile()
+network_info = get_linkedin_network_info()
+```
+
+### Interactive Mode
+```bash
+python scripts/get_profile.py --network
+```
+
+## Examples
+
+### Get Basic Profile
+```bash
+python scripts/get_profile.py
+```
+
+### Get Network Information
+```bash
+python scripts/get_profile.py --network
+```
+
+### Using Python API - Basic Profile
+```python
+from scripts.get_profile import get_linkedin_profile
+
+result = get_linkedin_profile()
+
+if result['success']:
+    profile = result['profile']
+    print(f"Name: {profile['name']}")
+    print(f"Email: {profile['email']}")
+    print(f"ID: {profile['id']}")
+else:
+    print(f"Error: {result['error']}")
+```
+
+### Using Python API - Network Info
+```python
+from scripts.get_profile import get_linkedin_network_info
+
+result = get_linkedin_network_info()
+
+if result['success']:
+    network = result['network_info']
+    print(f"First Name: {network['firstName']}")
+    print(f"Last Name: {network['lastName']}")
+    print(f"Profile URL: {network['profile_url']}")
+else:
+    print(f"Error: {result['error']}")
+```
+
+## Return Value
+
+Returns a dictionary with:
+- `success` (boolean): Whether the operation was successful
+- `profile` (object): Profile information if successful (for basic profile)
+- `network_info` (object): Network information if successful (for network info)
+- `error` (string): Error message if failed
+
+## Requirements
+
+- LinkedIn API credentials (access token)
+- Valid LinkedIn account with proper permissions
+- Python packages: requests, python-dotenv
+
+## Features
+
+- **Basic profile**: Retrieve name, email, and other basic profile details
+- **Network info**: Get connection details and profile links
+- **User-friendly**: Clean formatting of profile information
+- **Error handling**: Comprehensive error reporting
+
+## Error Handling
+
+- Invalid access token: Returns error with authentication instructions
+- Insufficient permissions: Returns error with permission details
+- API rate limit: Returns error with retry information
+- Network unavailable: Returns error with connection details
+
+## Notes
+
+- Requires LinkedIn API access with proper scopes
+- Profile information is returned in a structured format
+- Network information includes basic connection details
+- Profile URL is constructed based on the user ID
