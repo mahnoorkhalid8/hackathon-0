@@ -39,6 +39,21 @@ python send_custom_email.py draft-email.yaml
 python test_gmail_api.py
 ```
 
+### WhatsApp Commands
+```powershell
+
+cd whatsapp-node
+npm start
+
+python send_message.py
+```
+
+### LinkedIn Commands
+```powershell
+
+cd linkedin
+python post_linkedin.py
+```
 ---
 
 **Terminal:** PowerShell or CMD
