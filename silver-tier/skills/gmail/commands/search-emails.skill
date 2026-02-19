@@ -1,0 +1,99 @@
+# Skill: search-emails
+
+Search emails by various criteria with advanced query support.
+
+## Description
+This skill allows you to search emails using Gmail's powerful search syntax with support for keywords, date ranges, labels, and more.
+
+## Parameters
+
+### Optional
+- `query` (string): Search query (Gmail search syntax)
+- `keyword` (string): Simple keyword search
+- `from` (string): Filter by sender
+- `to` (string): Filter by recipient
+- `subject` (string): Search in subject
+- `after` (string): After date (YYYY-MM-DD)
+- `before` (string): Before date (YYYY-MM-DD)
+- `has_attachment` (boolean): Has attachments
+- `label` (string): Filter by label
+- `limit` (int): Maximum results (default: 50)
+
+## Usage
+
+### Command Line
+```bash
+python scripts/search_emails.py
+```
+
+### Python API
+```python
+from scripts.search_emails import search_emails
+
+results = search_emails(
+    keyword="invoice",
+    after="2024-01-01",
+    has_attachment=True
+)
+```
+
+## Examples
+
+### Keyword Search
+```bash
+python scripts/search_emails.py --keyword "meeting"
+```
+
+### Advanced Query
+```bash
+python scripts/search_emails.py --query "from:boss@company.com subject:urgent"
+```
+
+### Date Range with Attachments
+```bash
+python scripts/search_emails.py \
+  --after "2024-01-01" \
+  --before "2024-12-31" \
+  --has-attachment
+```
+
+### Search in Label
+```bash
+python scripts/search_emails.py --keyword "invoice" --label "Work"
+```
+
+## Return Value
+
+Returns a list of matching email dictionaries with:
+- `id` (string): Email message ID
+- `from` (string): Sender
+- `subject` (string): Subject line
+- `snippet` (string): Preview text
+- `date` (string): Date received
+- `labels` (list): Applied labels
+- `has_attachment` (boolean): Has attachments
+
+## Requirements
+
+- Gmail API credentials
+- Authenticated token
+- Python packages: google-auth, google-api-python-client
+
+## Gmail Search Syntax
+
+- `from:sender@example.com` - From specific sender
+- `to:recipient@example.com` - To specific recipient
+- `subject:keyword` - In subject line
+- `has:attachment` - Has attachments
+- `after:2024/01/01` - After date
+- `before:2024/12/31` - Before date
+- `label:work` - In specific label
+- `is:unread` - Unread emails
+- `is:starred` - Starred emails
+
+## Notes
+
+- Supports full Gmail search syntax
+- Maximum 500 results per search
+- Case-insensitive search
+- Combines multiple criteria with AND

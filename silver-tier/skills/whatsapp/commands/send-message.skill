@@ -1,0 +1,101 @@
+# Skill: send-message
+
+Send WhatsApp messages by selecting contacts by name.
+
+## Description
+This skill allows you to send WhatsApp messages by browsing and selecting contacts by name instead of typing phone numbers.
+
+## Parameters
+
+### Required
+- `contact` (string or number): Contact name to search or contact number from list
+- `message` (string): Message text to send
+
+### Optional
+- `confirm` (boolean): Require confirmation before sending (default: true)
+- `search` (string): Search query to filter contacts
+
+## Usage
+
+### Command Line (Interactive)
+```bash
+python scripts/send_message.py
+```
+
+### Python API
+```python
+from scripts.send_message import send_message
+
+send_message(
+    contact="John Doe",
+    message="Hello! How are you?"
+)
+```
+
+### Direct Mode
+```bash
+python scripts/send_message.py \
+  --contact "John Doe" \
+  --message "Hello from CLI!"
+```
+
+## Examples
+
+### Interactive Mode (Recommended)
+```bash
+python scripts/send_message.py
+# Browse contacts, search, select, type message
+```
+
+### Search and Send
+```bash
+python scripts/send_message.py \
+  --search "john" \
+  --message "Quick message"
+# Shows matching contacts, select one, sends
+```
+
+### Direct Send (No Confirmation)
+```bash
+python scripts/send_message.py \
+  --contact "John Doe" \
+  --message "Automated message" \
+  --no-confirm
+```
+
+## Return Value
+
+Returns a dictionary with:
+- `success` (boolean): Whether message was sent
+- `message_id` (string): WhatsApp message ID
+- `recipient` (string): Recipient phone number
+- `timestamp` (int): Message timestamp
+- `error` (string): Error message if failed
+
+## Requirements
+
+- Node.js backend running (npm start)
+- WhatsApp authenticated (QR scan on first run)
+- Python packages: requests
+
+## Features
+
+- **Contact name based**: No need to remember phone numbers
+- **Search functionality**: Find contacts quickly
+- **Pagination**: Browse through many contacts
+- **Confirmation**: Review before sending
+- **Session persistence**: No QR scan after first time
+
+## Error Handling
+
+- Backend not running: Returns error with instructions
+- Contact not found: Shows search suggestions
+- Message send failed: Retries with exponential backoff
+- Session invalid: Prompts to restart backend
+
+## Notes
+
+- Requires Node.js backend on port 3000
+- Shows 100 most recent contacts
+- Contact list updates automatically
+- Messages logged to whatsapp_state.json

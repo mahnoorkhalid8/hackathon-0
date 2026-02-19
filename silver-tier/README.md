@@ -1,693 +1,711 @@
-# Digital FTE - Bronze Tier Automation System
+# Silver Tier - Gmail, WhatsApp & LinkedIn Automation
 
 **Version:** 1.0
 **Status:** Production Ready
-**Created:** 2026-02-12
-**Python:** 3.13+
+**Created:** 2026-02-17
+**Python:** 3.8+
+**Node.js:** 16+
 
 ---
 
 ## Overview
 
-A complete, local-first Digital FTE (Full-Time Employee) automation system that processes tasks autonomously using deterministic procedures and real-time file system monitoring.
+Silver Tier provides production-ready automation for Gmail, WhatsApp, and LinkedIn with complete tools for communication and lead generation.
 
 **What You Get:**
-- ✓ Automated task triage and routing
-- ✓ Real-time file system monitoring
-- ✓ Claude Code CLI integration
-- ✓ Deterministic skill-based execution
-- ✓ Complete audit trail and transparency
-- ✓ Zero external dependencies (local-first)
-- ✓ Production-ready with comprehensive error handling
+- ✓ Gmail automation (send, read, search, manage labels)
+- ✓ WhatsApp messaging (send by contact name, auto-respond, view contacts)
+- ✓ LinkedIn content strategy & lead generation
+- ✓ AI-powered auto-responder with Claude API
+- ✓ Contact name-based messaging (no phone numbers needed)
+- ✓ Session persistence (no QR scan after first time)
+- ✓ Organized skills folder with reusable commands
+- ✓ Complete documentation and examples
 
 ---
 
 ## Quick Start
 
-### Option 1: Automated (Recommended)
+### Gmail Skills
 
-**Install dependencies:**
+**Prerequisites:**
 ```bash
-pip install -r requirements.txt
+# Install Python dependencies
+pip install google-auth google-auth-oauthlib google-auth-httplib2 google-api-python-client
+
+# Get Gmail API credentials from Google Cloud Console
+# Place credentials.json in gmail/ folder
 ```
 
-**Start the watcher:**
+**Send an email:**
 ```bash
-# Linux/Mac
-./start_watcher.sh
-
-# Windows
-start_watcher.bat
+cd skills/gmail
+python scripts/send_email.py
 ```
 
-**Drop a task in Inbox:**
+### WhatsApp Skills
+
+**Prerequisites:**
 ```bash
-cat > AI_Employee_Vault/Inbox/$(date +%Y%m%d-%H%M)-my-task.md << 'EOF'
-# My First Task
+# Install Node.js dependencies
+cd whatsapp-node
+npm install
 
-**Priority:** P2
-**Requester:** Your Name
-**Due Date:** 2026-02-15
+# Install Python dependencies
+pip install requests anthropic
 
-## Description
-What needs to be done.
-
-## Acceptance Criteria
-- [ ] Outcome 1
-- [ ] Outcome 2
-EOF
+# Start Node.js backend
+npm start
+# Scan QR code with WhatsApp mobile app (first time only)
 ```
 
-**Watch it process automatically** (7-18 seconds):
-- Watcher detects file
-- Claude triages via CLI
-- Metadata added
-- File routed to Needs_Action/
-- Dashboard updated
-
-### Option 2: Manual
-
-**Read the documentation:**
+**Send a message:**
 ```bash
-cat AI_Employee_Vault/README.md
-cat AI_Employee_Vault/QUICK_START.md
+cd skills/whatsapp
+python scripts/send_message.py
 ```
 
-**Create tasks manually** and process using the SKILLS procedures.
+### LinkedIn Automation
+
+**Prerequisites:**
+```bash
+# No external dependencies required
+# All tools use Python standard library
+```
+
+**Generate content strategy:**
+```bash
+cd linkedin
+python linkedin_strategy_generator.py --interactive
+```
+
+**Generate posts:**
+```bash
+python linkedin_post_generator.py --pillar all
+```
+
+**Create content calendar:**
+```bash
+python linkedin_calendar_generator.py --weeks 4
+```
 
 ---
 
-## System Architecture
+## Project Structure
 
 ```
-hackthon-0/
+silver-tier/
 │
-├── 🤖 inbox_watcher.py          # Automated file system monitor (500 lines)
-├── 📦 requirements.txt          # Python dependencies
-├── 🚀 start_watcher.sh          # Linux/Mac startup script
-├── 🚀 start_watcher.bat         # Windows startup script
-├── 📖 WATCHER_README.md         # Watcher documentation
+├── 📧 gmail/                      # Gmail implementation
+│   ├── credentials.json          # Gmail API credentials
+│   ├── token.json               # Saved authentication
+│   └── *.py                     # Gmail scripts
 │
-├── 📁 AI_Employee_Vault/        # Digital FTE workspace
-│   │
-│   ├── 📊 README.md             # System overview
-│   ├── 🚀 QUICK_START.md        # 5-minute getting started
-│   ├── 🏗️  SYSTEM_OVERVIEW.md    # Complete architecture
-│   ├── 📊 Dashboard.md          # Real-time status & metrics
-│   ├── 📖 Company_Handbook.md   # Operating manual (175 lines)
-│   │
-│   ├── 📥 Inbox/                # Task intake (monitored by watcher)
-│   ├── ⚡ Needs_Action/         # Active work queue
-│   ├── ✅ Done/                 # Completed tasks with summaries
-│   │
-│   └── 🛠️  SKILLS/               # Automation procedures (1,131 lines)
-│       ├── README.md            # Skills documentation
-│       ├── triage_file.md      # Intake automation (286 lines)
-│       ├── summarize_task.md   # Completion docs (423 lines)
-│       └── move_to_folder.md   # Safe file ops (422 lines)
+├── 💬 whatsapp-node/             # WhatsApp implementation
+│   ├── server.js                # Express backend
+│   ├── src/                     # WhatsApp service
+│   ├── send_message.py          # Message sender
+│   ├── whatsapp_watcher.py      # Auto-responder
+│   ├── whatsapp_assistant.py    # AI assistant
+│   ├── state_manager.py         # State management
+│   └── whatsapp_state.json      # Session & logs
 │
-└── 📝 history/prompts/general/  # Prompt History Records (PHRs)
-    ├── 001-digital-fte-bronze-architecture.general.prompt.md
-    ├── 002-skills-system-creation.general.prompt.md
-    ├── 003-digital-fte-bronze-system-build.general.prompt.md
-    └── 004-inbox-watcher-automation-system.general.prompt.md
+├── 💼 linkedin/                  # LinkedIn automation (NEW)
+│   ├── README.md                # LinkedIn documentation
+│   ├── linkedin_strategy_generator.py    # Strategy generator
+│   ├── linkedin_post_generator.py        # Post generator
+│   ├── linkedin_calendar_generator.py    # Calendar generator
+│   ├── linkedin_lead_tracker.py          # Lead tracking
+│   ├── Plan.md                  # Generated strategy (output)
+│   ├── content_calendar.json    # Generated calendar (output)
+│   ├── generated_posts.json     # Generated posts (output)
+│   └── leads.json              # Lead tracking data (output)
+│
+└── 🛠️ skills/                    # Skills interface
+    ├── README.md                # Skills documentation
+    ├── SKILLS_SUMMARY.md        # Complete summary
+    │
+    ├── gmail/                   # Gmail skills
+    │   ├── README.md
+    │   ├── commands/            # 4 skill definitions
+    │   │   ├── send-email.skill
+    │   │   ├── read-emails.skill
+    │   │   ├── search-emails.skill
+    │   │   └── manage-labels.skill
+    │   └── scripts/             # 4 implementation scripts
+    │       ├── send_email.py
+    │       ├── read_emails.py
+    │       ├── search_emails.py
+    │       └── manage_labels.py
+    │
+    └── whatsapp/                # WhatsApp skills
+        ├── README.md
+        ├── commands/            # 4 skill definitions
+        │   ├── send-message.skill
+        │   ├── auto-respond.skill
+        │   ├── view-contacts.skill
+        │   └── check-status.skill
+        └── scripts/             # 4 implementation scripts
+            ├── send_message.py
+            ├── auto_respond.py
+            ├── view_contacts.py
+            └── check_status.py
 ```
 
 ---
 
-## How It Works
+## Skills System
 
-### The Complete Workflow
+### What are Skills?
 
+Skills are reusable, documented automation commands for common Gmail and WhatsApp operations. Each skill has:
+
+1. **Skill Definition** (`.skill` file) - Interface specification, parameters, examples
+2. **Implementation Script** (`.py` file) - Working code with CLI interface
+3. **Documentation** (README) - Setup guide, usage examples, troubleshooting
+
+### Available Skills
+
+#### Gmail Skills (4)
+
+| Skill | Description | Command |
+|-------|-------------|---------|
+| **send-email** | Send emails with attachments | `python scripts/send_email.py` |
+| **read-emails** | Read and filter emails | `python scripts/read_emails.py --unread` |
+| **search-emails** | Search by criteria | `python scripts/search_emails.py --keyword "invoice"` |
+| **manage-labels** | Organize with labels | `python scripts/manage_labels.py --action list` |
+
+#### WhatsApp Skills (4)
+
+| Skill | Description | Command |
+|-------|-------------|---------|
+| **send-message** | Send by contact name | `python scripts/send_message.py` |
+| **auto-respond** | AI-powered auto-responder | `python scripts/auto_respond.py` |
+| **view-contacts** | List and search contacts | `python scripts/view_contacts.py --search "john"` |
+| **check-status** | Connection status | `python scripts/check_status.py --detailed` |
+
+---
+
+## Gmail Setup
+
+### 1. Get API Credentials
+
+1. Go to [Google Cloud Console](https://console.cloud.google.com/)
+2. Create a new project or select existing
+3. Enable Gmail API
+4. Create OAuth 2.0 credentials
+5. Download `credentials.json`
+6. Place in `gmail/` folder
+
+### 2. First Time Authentication
+
+```bash
+cd skills/gmail
+python scripts/send_email.py
 ```
-1️⃣  TASK CREATION
-   User drops markdown file in Inbox/
-   └─ Format: YYYYMMDD-HHMM-description.md
 
-2️⃣  AUTOMATED TRIAGE (if watcher running)
-   ├─ Watcher detects file (<1 second)
-   ├─ Waits 2 seconds for stabilization
-   ├─ Reads file content
-   ├─ Calls Claude Code CLI with structured prompt
-   ├─ Receives JSON triage result
-   ├─ Adds YAML metadata to file
-   ├─ Routes based on status:
-   │   ├─ needs_action → Needs_Action/
-   │   ├─ needs_clarification → [CLARIFICATION] prefix
-   │   └─ blocked → [BLOCKED] prefix
-   └─ Updates Dashboard activity log
+This will:
+- Open browser for Google authentication
+- Save `token.json` for future use
+- No re-authentication needed after this
 
-3️⃣  EXECUTION
-   ├─ Digital FTE processes tasks in priority order
-   ├─ Logs actions in work log
-   ├─ Checks off acceptance criteria
-   └─ Documents outcomes
+### 3. Usage Examples
 
-4️⃣  COMPLETION
-   ├─ Move to Done/ folder
-   ├─ Auto-generate summary (actions, results, learnings)
-   └─ Update Dashboard metrics
+**Send email:**
+```bash
+python scripts/send_email.py \
+  --to "user@example.com" \
+  --subject "Test" \
+  --body "Hello!"
 ```
 
-### Manual vs Automated
+**Read unread emails:**
+```bash
+python scripts/read_emails.py --unread --limit 10
+```
 
-**With Watcher (Automated):**
-- Drop file in Inbox → Automatic triage in 7-18 seconds
-- No manual intervention needed
-- Real-time processing
-- Dashboard auto-updates
+**Search emails:**
+```bash
+python scripts/search_emails.py \
+  --keyword "invoice" \
+  --after "2024-01-01" \
+  --has-attachment
+```
 
-**Without Watcher (Manual):**
-- Drop file in Inbox → Manually follow triage_file.md skill
-- Add metadata manually
-- Move files manually
-- Update Dashboard manually
-
----
-
-## Key Features
-
-### 1. Deterministic Execution
-- Every skill is explicit pseudocode (IF/THEN/FOR/WHILE)
-- No ambiguous "figure it out" logic
-- Same input always produces same output
-- Fully testable and predictable
-
-### 2. Local-First Architecture
-- All data on your filesystem
-- No external APIs or cloud dependencies
-- Complete privacy and control
-- Works offline (except Claude CLI calls)
-
-### 3. Real-Time Automation
-- File system monitoring with watchdog
-- Instant detection of new tasks
-- Automatic triage via Claude Code CLI
-- Intelligent routing and metadata injection
-
-### 4. Complete Transparency
-- Every action logged to Dashboard
-- Full audit trail in file metadata
-- Human-readable markdown throughout
-- Self-documenting system
-
-### 5. Atomic Operations
-- All-or-nothing file moves
-- Automatic rollback on failure
-- Write-then-delete pattern
-- Data integrity guaranteed
-
-### 6. Production Ready
-- Comprehensive error handling
-- Dual logging (file + console)
-- Cross-platform support (Windows/Linux/Mac)
-- Multiple deployment options
+**List labels:**
+```bash
+python scripts/manage_labels.py --action list
+```
 
 ---
 
-## System Statistics
+## WhatsApp Setup
 
-**Total Files:** 15+ markdown files, 1 Python script
-**Total Lines:** 5,000+ lines of content and code
-**Automation Logic:** 1,631 lines (1,131 skills + 500 watcher)
-**Documentation:** 6 comprehensive guides
-**Skills:** 3 deterministic procedures
-**Example Tasks:** 2 (1 completed, 1 ready)
+### 1. Start Node.js Backend
+
+```bash
+cd whatsapp-node
+npm install
+npm start
+```
+
+**First time:** Scan QR code with WhatsApp mobile app
+**Subsequent runs:** No QR scan needed (session saved)
+
+### 2. Usage Examples
+
+**Send message (interactive):**
+```bash
+cd skills/whatsapp
+python scripts/send_message.py
+# Browse contacts by name, select, type message, send
+```
+
+**Check status:**
+```bash
+python scripts/check_status.py --detailed
+```
+
+**View contacts:**
+```bash
+python scripts/view_contacts.py --search "john"
+```
+
+**Start auto-responder:**
+```bash
+python scripts/auto_respond.py
+# Monitors incoming messages and responds automatically
+```
 
 ---
 
-## Priority System
+## WhatsApp Auto-Responder
 
-| Priority | SLA | Use Case |
-|----------|-----|----------|
-| **P0** | Immediate | Critical issues, system down, security breach |
-| **P1** | 4 hours | Blocking users, broken core features |
-| **P2** | 24 hours | Standard tasks, improvements, enhancements |
-| **P3** | 3 days | Nice-to-haves, documentation, cleanup |
+### Features
 
----
+- **AI-Powered**: Uses Claude API for intelligent responses
+- **Fallback Mode**: Works without API key (simple responses)
+- **Human-in-the-Loop**: Optional approval before sending
+- **Message Logging**: All activity logged to whatsapp_state.json
+- **Session Persistence**: No QR scan after first time
 
-## Installation
+### Setup Claude API (Optional)
 
-### Prerequisites
+For intelligent AI responses:
 
-1. **Python 3.13+**
+1. Get API key from [Anthropic Console](https://console.anthropic.com/)
+2. Edit `whatsapp-node/.env`:
    ```bash
-   python --version
+   ANTHROPIC_API_KEY=sk-ant-your-key-here
    ```
+3. Restart Node.js backend
 
-2. **Claude Code CLI**
-   ```bash
-   claude --version
-   ```
+**Without API key:** Uses simple keyword-based responses
+**With API key:** Full Claude AI intelligence
 
-3. **Git** (optional, for version control)
-   ```bash
-   git --version
-   ```
+### Configuration
 
-### Setup
+Edit `whatsapp-node/whatsapp_state.json`:
 
-**1. Install Python dependencies:**
-```bash
-pip install -r requirements.txt
-```
-
-**2. Verify directory structure:**
-```bash
-ls -la AI_Employee_Vault/
-# Should show: Inbox/, Needs_Action/, Done/, Dashboard.md, etc.
-```
-
-**3. Start the watcher (optional but recommended):**
-```bash
-# Linux/Mac
-./start_watcher.sh
-
-# Windows
-start_watcher.bat
-
-# Or directly
-python inbox_watcher.py
-```
-
-**4. Create your first task:**
-```bash
-# See AI_Employee_Vault/QUICK_START.md for task template
+```json
+{
+  "human_in_the_loop": false,
+  "watcher_config": {
+    "poll_interval_seconds": 5,
+    "auto_reply_enabled": true,
+    "process_group_messages": false
+  }
+}
 ```
 
 ---
 
-## Usage
+## Complete Workflows
 
-### Automated Mode (With Watcher)
+### Workflow 1: Send Email with Attachment
 
-**Start the watcher:**
 ```bash
-python inbox_watcher.py
+cd skills/gmail
+python scripts/send_email.py \
+  --to "recipient@example.com" \
+  --subject "Documents" \
+  --body "Please find attached" \
+  --attachments "file.pdf" "file2.docx"
 ```
 
-**Create a task:**
+### Workflow 2: WhatsApp Auto-Responder
+
+**Terminal 1 - Backend:**
 ```bash
-cat > AI_Employee_Vault/Inbox/20260212-1500-example-task.md << 'EOF'
-# Example Task
-
-**Priority:** P2
-**Requester:** Your Name
-**Due Date:** 2026-02-15
-
-## Description
-Clear description of what needs to be done.
-
-## Acceptance Criteria
-- [ ] Specific outcome 1
-- [ ] Specific outcome 2
-- [ ] Specific outcome 3
-
-## Context
-Any relevant background information.
-EOF
+cd whatsapp-node
+npm start
 ```
 
-**Watch the automation:**
-- Watcher detects file
-- Claude triages automatically
-- File moves to Needs_Action/
-- Dashboard updates
-- Check Dashboard.md for confirmation
+**Terminal 2 - Auto-Responder:**
+```bash
+cd skills/whatsapp
+python scripts/auto_respond.py --human-approval
+```
 
-### Manual Mode (Without Watcher)
+Now incoming WhatsApp messages will:
+1. Be detected automatically
+2. Generate AI response
+3. Ask for your approval
+4. Send reply
 
-**Create a task in Inbox/**
+### Workflow 3: LinkedIn Lead Generation Campaign
 
-**Follow triage_file.md skill:**
-1. Read AI_Employee_Vault/SKILLS/triage_file.md
-2. Follow step-by-step reasoning
-3. Add metadata manually
-4. Move file to appropriate folder
-5. Update Dashboard.md
+**Step 1: Generate Strategy**
+```bash
+cd linkedin
+python linkedin_strategy_generator.py \
+  --business "AI automation consulting" \
+  --target "small businesses" \
+  --goal "generate 10 leads per month"
+```
 
-**Process the task:**
-1. Read task from Needs_Action/
-2. Execute and log actions
-3. Check off acceptance criteria
-4. Move to Done/ when complete
+**Step 2: Create Content Calendar**
+```bash
+python linkedin_calendar_generator.py --weeks 4
+```
 
-**Generate summary:**
-1. Read AI_Employee_Vault/SKILLS/summarize_task.md
-2. Follow step-by-step reasoning
-3. Append summary section
-4. Update Dashboard metrics
+**Step 3: Generate Posts**
+```bash
+python linkedin_post_generator.py --pillar all --count 3
+```
+
+**Step 4: Track Leads**
+```bash
+python linkedin_lead_tracker.py --action add
+python linkedin_lead_tracker.py --action stats
+```
+
+### Workflow 4: Search and Export Contacts
+
+```bash
+cd skills/whatsapp
+python scripts/view_contacts.py \
+  --search "work" \
+  --export json \
+  --output work_contacts.json
+```
 
 ---
 
-## Documentation Map
+## LinkedIn Automation
 
-| Document | Purpose | When to Read |
-|----------|---------|--------------|
-| **README.md** (this file) | Project overview | First time, orientation |
-| **AI_Employee_Vault/README.md** | System overview | Understanding the vault |
-| **AI_Employee_Vault/QUICK_START.md** | 5-minute guide | Ready to use |
-| **AI_Employee_Vault/SYSTEM_OVERVIEW.md** | Architecture | Deep dive, maintenance |
-| **AI_Employee_Vault/Company_Handbook.md** | Operating rules | Understanding decisions |
-| **AI_Employee_Vault/SKILLS/README.md** | Skills system | Understanding automation |
-| **WATCHER_README.md** | Watcher guide | Setting up automation |
-| **AI_Employee_Vault/Dashboard.md** | Current status | Daily monitoring |
+### Overview
+
+Complete LinkedIn toolkit for content strategy, post generation, and lead tracking. Designed to generate consistent leads through strategic LinkedIn presence.
+
+**Tools Available:**
+- **Strategy Generator:** Create comprehensive content strategy
+- **Post Generator:** Generate posts for all content pillars
+- **Calendar Generator:** Create weekly/monthly content calendars
+- **Lead Tracker:** Track and manage LinkedIn leads
+
+### Quick Start
+
+**Generate Strategy:**
+```bash
+cd linkedin
+python linkedin_strategy_generator.py --interactive
+```
+
+**Generate Posts:**
+```bash
+python linkedin_post_generator.py --pillar all
+```
+
+**Create Calendar:**
+```bash
+python linkedin_calendar_generator.py --weeks 4
+```
+
+**Track Leads:**
+```bash
+python linkedin_lead_tracker.py --action add
+```
+
+### Content Strategy
+
+LinkedIn automation follows a proven 4-pillar content strategy:
+- **Educational (40%):** How-to guides, frameworks, industry insights
+- **Social Proof (30%):** Case studies, testimonials, results
+- **Engagement (20%):** Questions, polls, discussions
+- **Promotional (10%):** Offers, resources, consultations
+
+**Weekly Schedule:**
+- Monday 9 AM: Educational (Carousel/Article)
+- Tuesday 12 PM: Engagement (Question/Poll)
+- Wednesday 10 AM: Social Proof (Case Study)
+- Thursday 2 PM: Educational (Video/Infographic)
+- Friday 11 AM: Engagement (Behind-the-scenes)
+
+**Lead Generation Timeline:**
+- Month 1: Foundation (2-3 leads)
+- Month 2: Growth (5-7 leads)
+- Month 3: Momentum (10+ leads)
+- Month 4+: Scale (consistent lead flow)
+
+For complete LinkedIn documentation, see `linkedin/README.md`.
 
 ---
 
-## Configuration
+## Documentation
 
-### Watcher Settings
+### Main Documentation
 
-Edit `inbox_watcher.py` to customize:
+| Document | Purpose |
+|----------|---------|
+| **skills/README.md** | Skills system overview |
+| **skills/SKILLS_SUMMARY.md** | Complete summary |
+| **skills/gmail/README.md** | Gmail skills guide |
+| **skills/whatsapp/README.md** | WhatsApp skills guide |
+| **linkedin/README.md** | LinkedIn automation guide |
 
-```python
-# File stabilization delay
-FILE_STABLE_DELAY = 2.0  # seconds
+### Implementation Documentation
 
-# Paths
-VAULT_ROOT = Path("AI_Employee_Vault")
-INBOX_PATH = VAULT_ROOT / "Inbox"
-NEEDS_ACTION_PATH = VAULT_ROOT / "Needs_Action"
-DONE_PATH = VAULT_ROOT / "Done"
+| Document | Purpose |
+|----------|---------|
+| **whatsapp-node/README.md** | WhatsApp API reference |
+| **whatsapp-node/SETUP_GUIDE.md** | Complete setup walkthrough |
+| **whatsapp-node/STATE_MANAGEMENT_GUIDE.md** | State management details |
+| **whatsapp-node/CLAUDE_ASSISTANT_GUIDE.md** | Claude API integration |
 
-# Claude CLI timeout
-timeout=60  # seconds
-```
+### LinkedIn Documentation
 
-### Company Handbook
+| Document | Purpose |
+|----------|---------|
+| **linkedin/README.md** | Complete LinkedIn automation guide |
+| **linkedin/Plan.md** | Generated content strategy (output) |
+| **linkedin/content_calendar.md** | Generated calendar (output) |
+| **linkedin/generated_posts.json** | Generated posts (output) |
 
-Edit `AI_Employee_Vault/Company_Handbook.md` to customize:
-- Mission and objectives
-- Priority definitions and SLAs
-- Decision framework boundaries
-- Quality standards
-- Escalation protocols
+### Skill Definitions
 
-### Skills
-
-Edit skill files in `AI_Employee_Vault/SKILLS/` to customize:
-- Triage logic and routing rules
-- Summary generation format
-- File movement validation
-- Metadata schema
-
----
-
-## Monitoring
-
-### Check System Status
-
-**Dashboard:**
-```bash
-cat AI_Employee_Vault/Dashboard.md
-```
-
-**Watcher logs:**
-```bash
-tail -f AI_Employee_Vault/watcher.log
-```
-
-**Task counts:**
-```bash
-ls AI_Employee_Vault/Inbox/ | wc -l
-ls AI_Employee_Vault/Needs_Action/ | wc -l
-ls AI_Employee_Vault/Done/ | wc -l
-```
-
-### Performance Metrics
-
-Check Dashboard.md for:
-- Tasks in Inbox (awaiting triage)
-- Tasks Requiring Action (active queue)
-- Tasks Completed Today
-- Total Tasks Completed
-- System Uptime
+Each skill has a `.skill` file in `commands/` folder with:
+- Interface specification
+- Parameters and options
+- Usage examples
+- Return values
+- Requirements
 
 ---
 
 ## Troubleshooting
 
-### Watcher Not Starting
+### Gmail Issues
 
-**Check:**
-```bash
-python --version  # Should be 3.13+
-pip list | grep watchdog  # Should show watchdog>=4.0.0
-claude --version  # Should show Claude CLI version
-ls AI_Employee_Vault/  # Should show all folders
-```
+**"credentials.json not found"**
+- Download from Google Cloud Console
+- Place in `gmail/` folder
 
-### Tasks Not Processing
+**"Token expired"**
+- Delete `token.json`
+- Run script again to re-authenticate
 
-**Check:**
-1. Watcher is running: `ps aux | grep inbox_watcher`
-2. File is .md extension
-3. File doesn't have [CLARIFICATION] or [BLOCKED] prefix
-4. Check `AI_Employee_Vault/watcher.log` for errors
+**"Permission denied"**
+- Check Gmail API is enabled
+- Verify OAuth scopes in credentials
 
-### Claude CLI Errors
+### WhatsApp Issues
 
-**Check:**
-```bash
-claude auth status  # Verify authentication
-claude --version  # Verify CLI is working
-```
+**"Cannot connect to WhatsApp backend"**
+- Make sure Node.js server is running: `npm start`
+- Check server is on port 3000
+- Verify WhatsApp is authenticated
 
-### Dashboard Not Updating
+**"Session invalid"**
+- Restart Node.js server
+- Scan QR code again if prompted
+- Check `.wwebjs_auth/` folder exists
 
-**Check:**
-1. Dashboard.md exists and is writable
-2. Activity Log section exists
-3. Check watcher.log for errors
+**"No contacts found"**
+- Make sure you have recent WhatsApp conversations
+- Restart Node.js server
+- Try sending a message to someone first
 
----
-
-## Production Deployment
-
-### Linux (systemd)
-
-Create `/etc/systemd/system/digital-fte-watcher.service`:
-
-```ini
-[Unit]
-Description=Digital FTE Inbox Watcher
-After=network.target
-
-[Service]
-Type=simple
-User=your-username
-WorkingDirectory=/path/to/hackthon-0
-ExecStart=/usr/bin/python3 inbox_watcher.py
-Restart=always
-RestartSec=10
-
-[Install]
-WantedBy=multi-user.target
-```
-
-**Enable:**
-```bash
-sudo systemctl enable digital-fte-watcher
-sudo systemctl start digital-fte-watcher
-```
-
-### Docker
-
-```bash
-docker build -t digital-fte-watcher .
-docker run -d --name fte-watcher \
-  -v $(pwd)/AI_Employee_Vault:/app/AI_Employee_Vault \
-  digital-fte-watcher
-```
-
-### Windows Task Scheduler
-
-1. Open Task Scheduler
-2. Create Basic Task
-3. Trigger: At startup
-4. Action: `python.exe C:\path\to\inbox_watcher.py`
-5. Start in: `C:\path\to\hackthon-0`
-
----
-
-## Security
-
-### Data Privacy
-- All data stored locally
-- No external transmission (except Claude CLI)
-- Complete audit trail
-- Human-readable formats
-
-### Access Control
-- File system permissions control access
-- Watcher runs with user permissions
-- No root/admin required
-
-### Claude CLI
-- Uses local Claude Code CLI
-- Authentication handled by CLI
-- No direct API calls from watcher
-
----
-
-## Extending the System
-
-### Add a New Skill
-
-1. Create `AI_Employee_Vault/SKILLS/new_skill.md`
-2. Follow skill template structure
-3. Write deterministic step-by-step logic
-4. Add error handling and success criteria
-5. Update `AI_Employee_Vault/SKILLS/README.md`
-6. Test with example tasks
-
-### Customize Triage Logic
-
-1. Edit `inbox_watcher.py`
-2. Modify `ClaudeCodeClient._build_triage_prompt()`
-3. Adjust routing logic in `TriageProcessor._route_file()`
-4. Test with various task types
-
-### Add Custom Metadata
-
-1. Define field in `SYSTEM_OVERVIEW.md` schema
-2. Update `TriageProcessor._build_metadata()`
-3. Modify skills to use new field
-4. Update Dashboard if needed
+**"Message failed to send"**
+- Check phone number format (country code, no +)
+- Verify recipient has WhatsApp
+- Check internet connection
 
 ---
 
 ## Performance
 
-### Metrics
+### Gmail
+- **Authentication:** One-time (token cached)
+- **Send Email:** 1-3 seconds
+- **Read Emails:** 2-5 seconds
+- **Search:** 3-10 seconds (depends on query)
 
-- **Detection Latency:** <1 second
-- **Stabilization Delay:** 2 seconds
-- **Claude CLI Call:** 5-15 seconds
-- **File Operations:** <1 second
-- **Total Processing:** 7-18 seconds per task
+### WhatsApp
+- **Backend Startup:** 10-30 seconds (first time with QR)
+- **Backend Startup:** 5-10 seconds (subsequent runs)
+- **Send Message:** 1-3 seconds
+- **Auto-Responder:** 5-15 seconds per message (with Claude API)
 
-### Resource Usage
+### LinkedIn
+- **Strategy Generation:** 1-2 seconds
+- **Post Generation:** <1 second per post
+- **Calendar Generation:** 1-2 seconds
+- **Lead Tracking:** <1 second per operation
+- **All operations:** Instant (no API calls required)
 
-- **CPU:** <1% idle, <5% during processing
-- **Memory:** ~50-100 MB
-- **Disk I/O:** Minimal
-- **Network:** None (local-only, except Claude CLI)
+---
+
+## Security
+
+### Gmail
+- OAuth 2.0 authentication
+- Token stored locally
+- No password storage
+- Scopes limited to necessary permissions
+
+### WhatsApp
+- Session stored locally in `.wwebjs_auth/`
+- No credentials stored
+- All data local-first
+- Optional Claude API (can work without)
+
+### LinkedIn
+- No authentication required
+- All data stored locally
+- No API calls or external services
+- Complete privacy and control
+
+---
+
+## Extending the System
+
+### Add New Gmail Skill
+
+1. Create skill definition: `skills/gmail/commands/new-skill.skill`
+2. Create implementation: `skills/gmail/scripts/new_skill.py`
+3. Update `skills/gmail/README.md`
+4. Test thoroughly
+
+### Add New WhatsApp Skill
+
+1. Create skill definition: `skills/whatsapp/commands/new-skill.skill`
+2. Create implementation: `skills/whatsapp/scripts/new_skill.py`
+3. Update `skills/whatsapp/README.md`
+4. Test with Node.js backend
+
+### Customize LinkedIn Content
+
+**Modify Post Templates:**
+Edit `linkedin/linkedin_post_generator.py` to add your own post templates and styles.
+
+**Adjust Posting Schedule:**
+Edit `linkedin/linkedin_calendar_generator.py` to change posting times and frequency.
+
+**Customize Strategy:**
+Edit `linkedin/linkedin_strategy_generator.py` to modify strategy sections and metrics.
+
+### Customize AI Responses
+
+Edit `whatsapp-node/whatsapp_assistant.py`:
+- Modify `system_prompt` for personality
+- Adjust `max_tokens` for response length
+- Change `temperature` for creativity
 
 ---
 
 ## FAQ
 
-**Q: Do I need the watcher to use the system?**
-A: No. The watcher is optional. You can process tasks manually using the SKILLS procedures.
+**Q: Do I need Claude API key for WhatsApp?**
+A: No. It works without API key using simple fallback responses. API key enables intelligent AI responses.
 
-**Q: Can I run multiple watchers?**
-A: Not recommended. Multiple watchers will process the same files, causing conflicts.
+**Q: Can I use this for multiple Gmail accounts?**
+A: Yes. Use different `credentials.json` and `token.json` files for each account.
 
-**Q: What happens if the watcher crashes?**
-A: Files remain in Inbox. Restart the watcher to resume processing.
+**Q: Does WhatsApp work without Node.js backend?**
+A: No. The Node.js backend is required for WhatsApp functionality.
 
-**Q: Does this work offline?**
-A: Mostly. The watcher needs Claude CLI which may require network. Manual mode is fully offline.
+**Q: Can I run WhatsApp auto-responder 24/7?**
+A: Yes. Keep Node.js backend and auto-responder running. Consider using systemd or Docker for production.
 
-**Q: Can I customize the triage logic?**
-A: Yes. Edit the Claude prompt in `inbox_watcher.py` or modify the skill files.
+**Q: Does LinkedIn automation post automatically?**
+A: No. The tools generate content and calendars. You schedule and post manually or use LinkedIn's native scheduler.
+
+**Q: Do I need LinkedIn API access?**
+A: No. All LinkedIn tools work offline and generate content locally. No API required.
+
+**Q: How long to see results from LinkedIn strategy?**
+A: Month 1: 2-3 leads, Month 2: 5-7 leads, Month 3: 10+ leads with consistent execution.
 
 **Q: How do I backup my data?**
-A: Copy the entire `AI_Employee_Vault/` folder. Everything is in markdown files.
-
-**Q: Can I use this for a team?**
-A: Yes, but you'll need to handle concurrent access. Consider using git for collaboration.
-
----
-
-## Support
-
-### Documentation
-- Read the comprehensive guides in `AI_Employee_Vault/`
-- Check `WATCHER_README.md` for automation details
-- Review skill files for execution logic
-
-### Troubleshooting
-1. Check `AI_Employee_Vault/watcher.log`
-2. Review `AI_Employee_Vault/Dashboard.md`
-3. Consult `AI_Employee_Vault/SYSTEM_OVERVIEW.md`
-4. Create [ESCALATION] task in Inbox/
-
-### Community
-- Create issues for bugs or questions
-- Share custom skills and improvements
-- Contribute documentation enhancements
-
----
-
-## Version History
-
-**1.0 (2026-02-12) - Initial Release**
-- Complete Bronze Tier Digital FTE system
-- 3 foundational skills (1,131 lines)
-- Real-time inbox watcher (500 lines)
-- Claude Code CLI integration
-- Comprehensive documentation (5,000+ lines)
-- Cross-platform support
-- Production-ready deployment
-
----
-
-## License
-
-This is a Bronze Tier Digital FTE system designed for local-first, deterministic task automation. Use it, modify it, extend it to fit your needs.
+A: Copy the entire `silver-tier/` folder. All data is in local files.
 
 ---
 
 ## What's Next?
 
 ### Immediate (Next 5 Minutes)
-1. Start the watcher: `./start_watcher.sh` or `start_watcher.bat`
-2. Create your first task in Inbox/
-3. Watch it process automatically
-4. Check Dashboard.md for results
+
+**Gmail:**
+```bash
+cd skills/gmail
+python scripts/send_email.py
+# Authenticate and send first email
+```
+
+**WhatsApp:**
+```bash
+cd whatsapp-node
+npm start
+# Scan QR code, then use skills
+```
+
+**LinkedIn:**
+```bash
+cd linkedin
+python linkedin_strategy_generator.py --interactive
+# Generate your content strategy
+```
 
 ### Short Term (This Week)
-1. Process 10-20 real tasks
-2. Identify workflow patterns
-3. Customize Company_Handbook.md
-4. Add task templates
+
+1. Test all 8 Gmail/WhatsApp skills
+2. Generate LinkedIn content strategy and calendar
+3. Create first batch of LinkedIn posts
+4. Customize AI assistant personality
+5. Set up auto-responder for common queries
 
 ### Long Term (This Month)
-1. Review completed tasks for learnings
-2. Calculate performance metrics
-3. Create custom skills
-4. Consider Silver tier upgrades
+
+1. Execute LinkedIn posting schedule consistently
+2. Track and nurture LinkedIn leads
+3. Add custom skills for your workflows
+4. Integrate with other systems
+5. Monitor and optimize performance
 
 ---
 
-**You're ready. Start the watcher and drop a task in Inbox/. The Digital FTE will handle the rest.**
+**You're ready. Start with any platform and explore the automation capabilities.**
 
 ```bash
-# Quick start
-pip install -r requirements.txt
-./start_watcher.sh  # or start_watcher.bat on Windows
+# Quick start - Gmail
+cd skills/gmail
+python scripts/send_email.py
 
-# Create a task
-cat > AI_Employee_Vault/Inbox/$(date +%Y%m%d-%H%M)-my-first-task.md << 'EOF'
-# My First Task
-**Priority:** P2
-**Requester:** Me
-**Due Date:** 2026-02-15
+# Quick start - WhatsApp
+cd whatsapp-node
+npm start
+# Then in another terminal:
+cd skills/whatsapp
+python scripts/send_message.py
 
-## Description
-Test the Digital FTE system.
-
-## Acceptance Criteria
-- [ ] Task is triaged automatically
-- [ ] Metadata is added
-- [ ] File moves to Needs_Action
-- [ ] Dashboard is updated
-EOF
-
-# Watch the magic happen
-tail -f AI_Employee_Vault/watcher.log
+# Quick start - LinkedIn
+cd linkedin
+python linkedin_strategy_generator.py --interactive
 ```
+
+**Documentation:**
+- Gmail & WhatsApp Skills: `skills/README.md` and `skills/SKILLS_SUMMARY.md`
+- LinkedIn Automation: `linkedin/README.md`
+- Complete Silver Tier Guide: This file
+

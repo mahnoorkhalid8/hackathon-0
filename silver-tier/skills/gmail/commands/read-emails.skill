@@ -1,0 +1,83 @@
+# Skill: read-emails
+
+Read and filter emails from Gmail inbox.
+
+## Description
+This skill allows you to read emails with various filtering options including unread status, sender, date range, and labels.
+
+## Parameters
+
+### Optional
+- `unread_only` (boolean): Only show unread emails (default: true)
+- `limit` (int): Maximum number of emails to retrieve (default: 10)
+- `sender` (string): Filter by sender email address
+- `subject` (string): Filter by subject keywords
+- `after` (string): Show emails after date (YYYY-MM-DD)
+- `before` (string): Show emails before date (YYYY-MM-DD)
+- `label` (string): Filter by Gmail label
+- `mark_read` (boolean): Mark retrieved emails as read (default: false)
+
+## Usage
+
+### Command Line (Interactive)
+```bash
+python scripts/read_emails.py
+```
+
+### Python API
+```python
+from scripts.read_emails import read_emails
+
+emails = read_emails(
+    unread_only=True,
+    limit=20,
+    sender="example@gmail.com"
+)
+```
+
+## Examples
+
+### Read Unread Emails
+```bash
+python scripts/read_emails.py --unread --limit 10
+```
+
+### Filter by Sender
+```bash
+python scripts/read_emails.py --sender "boss@company.com" --limit 5
+```
+
+### Date Range
+```bash
+python scripts/read_emails.py \
+  --after "2024-01-01" \
+  --before "2024-12-31"
+```
+
+### Mark as Read
+```bash
+python scripts/read_emails.py --unread --mark-read
+```
+
+## Return Value
+
+Returns a list of email dictionaries with:
+- `id` (string): Email message ID
+- `from` (string): Sender email
+- `subject` (string): Email subject
+- `snippet` (string): Email preview
+- `date` (string): Received date
+- `labels` (list): Applied labels
+- `unread` (boolean): Read status
+
+## Requirements
+
+- Gmail API credentials
+- Authenticated token
+- Python packages: google-auth, google-api-python-client
+
+## Notes
+
+- Maximum 500 emails per request
+- Snippets limited to 200 characters
+- Date format: YYYY-MM-DD

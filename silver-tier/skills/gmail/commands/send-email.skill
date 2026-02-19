@@ -1,0 +1,107 @@
+# Skill: send-email
+
+Send emails with optional attachments and HTML formatting.
+
+## Description
+This skill allows you to send emails through Gmail with support for multiple recipients, attachments, and HTML content.
+
+## Parameters
+
+### Required
+- `to` (string or list): Recipient email address(es)
+- `subject` (string): Email subject line
+- `body` (string): Email body content
+
+### Optional
+- `cc` (string or list): CC recipients
+- `bcc` (string or list): BCC recipients
+- `attachments` (list): List of file paths to attach
+- `html` (boolean): Whether body is HTML (default: false)
+- `from` (string): Sender email (default: authenticated account)
+
+## Usage
+
+### Command Line
+```bash
+python scripts/send_email.py
+```
+
+### Python API
+```python
+from scripts.send_email import send_email
+
+send_email(
+    to="recipient@example.com",
+    subject="Hello",
+    body="This is a test email",
+    attachments=["document.pdf"]
+)
+```
+
+### Interactive Mode
+```bash
+python scripts/send_email.py --interactive
+```
+
+## Examples
+
+### Simple Email
+```bash
+python scripts/send_email.py \
+  --to "user@example.com" \
+  --subject "Test Email" \
+  --body "Hello, this is a test!"
+```
+
+### Email with Attachments
+```bash
+python scripts/send_email.py \
+  --to "user@example.com" \
+  --subject "Documents" \
+  --body "Please find attached documents" \
+  --attachments "file1.pdf" "file2.docx"
+```
+
+### HTML Email
+```bash
+python scripts/send_email.py \
+  --to "user@example.com" \
+  --subject "Newsletter" \
+  --body "<h1>Hello</h1><p>Welcome!</p>" \
+  --html
+```
+
+### Multiple Recipients
+```bash
+python scripts/send_email.py \
+  --to "user1@example.com" "user2@example.com" \
+  --cc "manager@example.com" \
+  --subject "Team Update" \
+  --body "Important team announcement"
+```
+
+## Return Value
+
+Returns a dictionary with:
+- `success` (boolean): Whether email was sent
+- `message_id` (string): Gmail message ID
+- `error` (string): Error message if failed
+
+## Requirements
+
+- Gmail API credentials (credentials.json)
+- Authenticated token (token.json)
+- Python packages: google-auth, google-api-python-client
+
+## Error Handling
+
+- Invalid email format: Returns error with details
+- Missing credentials: Prompts for authentication
+- Attachment not found: Returns error with file path
+- API quota exceeded: Returns error with retry suggestion
+
+## Notes
+
+- Maximum attachment size: 25MB per email
+- Maximum recipients: 100 per email
+- Rate limit: 500 emails per day (Gmail free tier)

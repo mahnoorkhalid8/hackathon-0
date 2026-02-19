@@ -1,0 +1,211 @@
+[
+  {
+    "id": 1,
+    "week": 1,
+    "date": "2026-02-23",
+    "day": "Monday",
+    "time": "09:00",
+    "datetime": "2026-02-23 09:00",
+    "pillar": "educational",
+    "format": "Carousel post or long-form article",
+    "topic_type": "Industry insights, how-to guides",
+    "cta": "Save this for later",
+    "status": "scheduled",
+    "notes": "",
+    "topic_suggestions": [
+      "How AI automation consulting transforms small businesses",
+      "Common mistakes small businesses make with automation",
+      "The ROI of AI automation consulting for small businesses"
+    ]
+  },
+  {
+    "id": 2,
+    "week": 1,
+    "date": "2026-02-24",
+    "day": "Tuesday",
+    "time": "12:00",
+    "datetime": "2026-02-24 12:00",
+    "pillar": "engagement",
+    "format": "Question or poll",
+    "topic_type": "Industry discussion, audience pain points",
+    "cta": "Comment below",
+    "status": "scheduled",
+    "notes": "",
+    "topic_suggestions": [
+      "What's your biggest challenge with automation?",
+      "Hot take: Controversial industry opinion",
+      "Behind the scenes: Our process"
+    ]
+  },
+  {
+    "id": 3,
+    "week": 1,
+    "date": "2026-02-25",
+    "day": "Wednesday",
+    "time": "10:00",
+    "datetime": "2026-02-25 10:00",
+    "pillar": "social_proof",
+    "format": "Case study or testimonial",
+    "topic_type": "Client success story, results achieved",
+    "cta": "Want similar results? DM me",
+    "status": "scheduled",
+    "notes": "",
+    "topic_suggestions": [
+      "Case study: small businesses success story",
+      "Before/after: Client transformation",
+      "Real results: Metrics and ROI"
+    ]
+  },
+  {
+    "id": 4,
+    "week": 1,
+    "date": "2026-02-26",
+    "day": "Thursday",
+    "time": "14:00",
+    "datetime": "2026-02-26 14:00",
+    "pillar": "educational",
+    "format": "Video or infographic",
+    "topic_type": "Quick tips, best practices",
+    "cta": "Follow for more tips",
+    "status": "scheduled",
+    "notes": "",
+    "topic_suggestions": [
+      "How AI automation consulting transforms small businesses",
+      "Common mistakes small businesses make with automation",
+      "The ROI of AI automation consulting for small businesses"
+    ]
+  },
+  {
+    "id": 5,
+    "week": 1,
+    "date": "2026-02-27",
+    "day": "Friday",
+    "time": "11:00",
+    "datetime": "2026-02-27 11:00",
+    "pillar": "engagement",
+    "format": "Behind-the-scenes or personal story",
+    "topic_type": "Lessons learned, industry observations",
+    "cta": "What's your take?",
+    "status": "scheduled",
+    "notes": "",
+    "topic_suggestions": [
+      "What's your biggest challenge with automation?",
+      "Hot take: Controversial industry opinion",
+      "Behind the scenes: Our process"
+    ]
+  },
+  {
+    "id": 6,
+    "week": 2,
+    "date": "2026-03-02",
+    "day": "Monday",
+    "time": "09:00",
+    "datetime": "2026-03-02 09:00",
+    "pillar": "educational",
+    "format": "Carousel post or long-form article",
+    "topic_type": "Industry insights, how-to guides",
+    "cta": "Save this for later",
+    "status": "scheduled",
+    "notes": "",
+    "topic_suggestions": [
+      "How AI automation consulting transforms small businesses",
+      "Common mistakes small businesses make with automation",
+      "The ROI of AI automation consulting for small businesses"
+    ]
+  },
+  {
+    "id": 7,
+    "week": 2,
+    "date": "2026-03-03",
+    "day": "Tuesday",
+    "time": "12:00",
+    "datetime": "2026-03-03 12:00",
+    "pillar": "engagement",
+    "format": "Question or poll",
+    "topic_type": "Industry discussion, audience pain points",
+    "cta": "Comment below",
+    "status": "scheduled",
+    "notes": "",
+    "topic_suggestions": [
+      "What's your biggest challenge with automation?",
+      "Hot take: Controversial industry opinion",
+      "Behind the scenes: Our process"
+    ]
+  },
+  {
+    "id": 8,
+    "week": 2,
+    "date": "2026-03-04",
+    "day": "Wednesday",
+    "time": "10:00",
+    "datetime": "2026-03-04 10:00",
+    "pillar": "social_proof",
+    "format": "Case study or testimonial",
+    "topic_type": "Client success story, results achieved",
+    "cta": "Want similar results? DM me",
+    "status": "scheduled",
+    "notes": "",
+    "topic_suggestions": [
+      "Case study: small businesses success story",
+      "Before/after: Client transformation",
+      "Real results: Metrics and ROI"
+    ]
+  },
+  {
+    "id": 9,
+    "week": 2,
+    "date": "2026-03-05",
+    "day": "Thursday",
+    "time": "14:00",
+    "datetime": "2026-03-05 14:00",
+    "pillar": "educational",
+    "format": "Video or infographic",
+    "topic_type": "Quick tips, best practices",
+    "cta": "Follow for more tips",
+    "status": "scheduled",
+    "notes": "",
+    "topic_suggestions": [
+      "How AI automation consulting transforms small businesses",
+      "Common mistakes small businesses make with automation",
+      "The ROI of AI automation consulting for small businesses"
+    ]
+  },
+  {
+    "id": 10,
+    "week": 2,
+    "date": "2026-03-06",
+    "day": "Friday",
+    "time": "11:00",
+    "datetime": "2026-03-06 11:00",
+    "pillar": "engagement",
+    "format": "Behind-the-scenes or personal story",
+    "topic_type": "Lessons learned, industry observations",
+    "cta": "What's your take?",
+    "status": "scheduled",
+    "notes": "",
+    "topic_suggestions": [
+      "What's your biggest challenge with automation?",
+      "Hot take: Controversial industry opinion",
+      "Behind the scenes: Our process"
+    ]
+  },
+  {
+    "id": 11,
+    "week": 2,
+    "date": "2026-03-07",
+    "day": "Saturday",
+    "time": "09:00",
+    "datetime": "2026-03-07 09:00",
+    "pillar": "promotional",
+    "format": "Offer or resource",
+    "topic_type": "Free resource, consultation offer, webinar",
+    "cta": "DM to claim / Download link in comments",
+    "status": "scheduled",
+    "topic_suggestions": [
+      "Free AI automation consulting audit for small businesses",
+      "Download: ROI calculator",
+      "Limited spots: Free consultation"
+    ],
+    "notes": "Keep promotional content soft and value-focused"
+  }
+]
