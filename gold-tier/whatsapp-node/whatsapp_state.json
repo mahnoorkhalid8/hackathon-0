@@ -1,0 +1,272 @@
+{
+  "session": {
+    "authenticated": true,
+    "last_authenticated": "2026-02-16T18:09:50.720168",
+    "session_valid": true,
+    "session_path": ".wwebjs_auth",
+    "requires_qr": false,
+    "last_validation": "2026-02-16T18:09:50.720134",
+    "validation_interval_minutes": 30
+  },
+  "account_info": {
+    "number": "923332455342",
+    "name": "Mahnoor",
+    "platform": "iphone",
+    "last_updated": "2026-02-16T18:09:50.720178"
+  },
+  "api_endpoint": "http://localhost:3000/api/whatsapp",
+  "human_in_the_loop": true,
+  "watcher_config": {
+    "poll_interval_seconds": 5,
+    "auto_reply_enabled": true,
+    "process_group_messages": false,
+    "max_messages_per_poll": 10
+  },
+  "retry_config": {
+    "max_retries": 3,
+    "retry_delay_seconds": 2,
+    "exponential_backoff": true
+  },
+  "messages": {
+    "incoming": [],
+    "pending_approval": [],
+    "approved": [],
+    "rejected": [],
+    "sent": [
+      {
+        "id": "msg123",
+        "from": "1234567890@c.us",
+        "body": "Hello!",
+        "fromName": "Test User",
+        "timestamp": "2026-02-16T18:09:51.130146",
+        "status": "sent",
+        "status_updated_at": "2026-02-16T18:09:51.706437"
+      }
+    ],
+    "failed": []
+  },
+  "message_log": [],
+  "incoming_messages": [
+    {
+      "id": "3AFFB2355CA3FC5E89F7",
+      "from": "status@broadcast",
+      "fromName": "Farhana Elahi",
+      "body": "https://www.instagram.com/reel/DScpY0bDBu1/?igsh=b290eHk5YXNkYjVp",
+      "timestamp": 1771252560,
+      "receivedAt": "2026-02-16T15:41:48.405Z",
+      "isGroup": false,
+      "processed": true,
+      "processedAt": "2026-02-16T20:47:28.202901"
+    },
+    {
+      "id": "AC18470599202F013FFE12E6393B86E2",
+      "from": "status@broadcast",
+      "fromName": "Muhammad Ahsan Ahmer",
+      "body": "*_اللھم بلغنا رمضان_*",
+      "timestamp": 1771252617,
+      "receivedAt": "2026-02-16T15:41:49.349Z",
+      "isGroup": false,
+      "processed": true,
+      "processedAt": "2026-02-16T20:49:35.977487"
+    },
+    {
+      "id": "ACED889E726A3C3A889833B2F2267436",
+      "from": "status@broadcast",
+      "fromName": "Muhammad Ahsan Ahmer",
+      "body": "*_#Cricket may nahi, Yahan DIL lagao🫶🏻✨. Yahan DIL nahi Toot'tay❤️🫶🏻_*",
+      "timestamp": 1771252867,
+      "receivedAt": "2026-02-16T15:41:49.350Z",
+      "isGroup": false,
+      "processed": true,
+      "processedAt": "2026-02-16T20:50:22.333245"
+    },
+    {
+      "id": "3A0F3F3F9C6EFC71E81C",
+      "from": "status@broadcast",
+      "fromName": "Farhana Elahi",
+      "body": "https://www.instagram.com/reel/DTLcE4PDOTI/?igsh=MXR6NDZyZ2M2c2xr",
+      "timestamp": 1771252699,
+      "receivedAt": "2026-02-16T15:41:49.352Z",
+      "isGroup": false,
+      "processed": true,
+      "processedAt": "2026-02-16T20:50:28.870990"
+    },
+    {
+      "id": "A56D75408D40B58B5A1AB3E4BD2CD18B",
+      "from": "265794403495986@lid",
+      "fromName": "Wajahat Ali Khan",
+      "body": "Kb",
+      "timestamp": 1771252825,
+      "receivedAt": "2026-02-16T15:41:52.283Z",
+      "isGroup": false,
+      "processed": true,
+      "processedAt": "2026-02-16T20:50:34.838105"
+    },
+    {
+      "id": "ACCD2A5275DC239790B361909F7CD088",
+      "from": "status@broadcast",
+      "fromName": "Muhammad Ahsan Ahmer",
+      "body": "*_Muhabbat Be-Zabanon say karni chahye Qnkay Yeh Zaban say Teer nahi chalatay.....!_*",
+      "timestamp": 1771253087,
+      "receivedAt": "2026-02-16T15:41:53.915Z",
+      "isGroup": false,
+      "processed": true,
+      "processedAt": "2026-02-16T20:53:37.112318"
+    },
+    {
+      "id": "3AC9717FDDCFFEF7452B",
+      "from": "status@broadcast",
+      "fromName": "Farhana Elahi",
+      "body": "https://www.instagram.com/reel/DUvYlYODaGu/?igsh=MTBjcHlybjM1cnd6OA==",
+      "timestamp": 1771253088,
+      "receivedAt": "2026-02-16T15:41:53.953Z",
+      "isGroup": false,
+      "processed": true,
+      "processedAt": "2026-02-16T20:54:18.862832"
+    },
+    {
+      "id": "3AF58A4FB27129BF5DBA",
+      "from": "status@broadcast",
+      "fromName": "Arrhamaaz❤️",
+      "body": "",
+      "timestamp": 1771253104,
+      "receivedAt": "2026-02-16T15:41:54.447Z",
+      "isGroup": false,
+      "processed": true,
+      "processedAt": "2026-02-16T20:54:49.625668"
+    },
+    {
+      "id": "A5826A9B54A494F3681B12994E59B465",
+      "from": "265794403495986@lid",
+      "fromName": "Wajahat Ali Khan",
+      "body": "",
+      "timestamp": 1771253117,
+      "receivedAt": "2026-02-16T15:41:55.218Z",
+      "isGroup": false,
+      "processed": true,
+      "processedAt": "2026-02-16T20:54:49.645263"
+    },
+    {
+      "id": "A5052C22708B9EEE98FDD2AF8309888A",
+      "from": "265794403495986@lid",
+      "fromName": "Wajahat Ali Khan",
+      "body": "Jee mein krta hn Dua Apke liye",
+      "timestamp": 1771253123,
+      "receivedAt": "2026-02-16T15:41:55.233Z",
+      "isGroup": false,
+      "processed": true,
+      "processedAt": "2026-02-16T20:54:49.660486"
+    },
+    {
+      "id": "A5C2F5CFE891D059E2BBAD1614CE32C5",
+      "from": "265794403495986@lid",
+      "fromName": "Wajahat Ali Khan",
+      "body": "",
+      "timestamp": 1771253266,
+      "receivedAt": "2026-02-16T15:41:55.806Z",
+      "isGroup": false,
+      "processed": true,
+      "processedAt": "2026-02-16T20:55:15.730604"
+    },
+    {
+      "id": "A519D31B8A1766B39F976A96EBF28118",
+      "from": "265794403495986@lid",
+      "fromName": "Wajahat Ali Khan",
+      "body": "Jee Apke liye 🥹",
+      "timestamp": 1771253273,
+      "receivedAt": "2026-02-16T15:41:55.829Z",
+      "isGroup": false,
+      "processed": true,
+      "processedAt": "2026-02-16T20:55:15.744065"
+    }
+  ],
+  "pending_replies": [
+    {
+      "recipient": "status",
+      "message": "That's an interesting question! I'm currently running in fallback mode. Please set up the Claude API key for intelligent responses.",
+      "original_message_id": "3AFFB2355CA3FC5E89F7",
+      "generated_at": "2026-02-16T20:47:28.222708",
+      "status": "failed",
+      "updated_at": "2026-02-16T20:49:35.948555"
+    },
+    {
+      "recipient": "status",
+      "message": "Thanks for your message! I received it but I'm running in fallback mode. Please configure the Claude API key for AI-powered responses.",
+      "original_message_id": "AC18470599202F013FFE12E6393B86E2",
+      "generated_at": "2026-02-16T20:49:36.019122",
+      "status": "failed",
+      "updated_at": "2026-02-16T20:50:22.319370"
+    },
+    {
+      "recipient": "status",
+      "message": "Hello Muhammad Ahsan Ahmer! How can I help you today?",
+      "original_message_id": "ACED889E726A3C3A889833B2F2267436",
+      "generated_at": "2026-02-16T20:50:22.371939",
+      "status": "rejected",
+      "updated_at": "2026-02-16T20:50:28.845138"
+    },
+    {
+      "recipient": "status",
+      "message": "That's an interesting question! I'm currently running in fallback mode. Please set up the Claude API key for intelligent responses.",
+      "original_message_id": "3A0F3F3F9C6EFC71E81C",
+      "generated_at": "2026-02-16T20:50:28.875006",
+      "status": "rejected",
+      "updated_at": "2026-02-16T20:50:34.829096"
+    },
+    {
+      "recipient": "265794403495986",
+      "message": "Thanks for your message! I received it but I'm running in fallback mode. Please configure the Claude API key for AI-powered responses.",
+      "original_message_id": "A56D75408D40B58B5A1AB3E4BD2CD18B",
+      "generated_at": "2026-02-16T20:50:34.849767",
+      "status": "failed",
+      "updated_at": "2026-02-16T20:53:37.091918"
+    },
+    {
+      "recipient": "status",
+      "message": "Hello Muhammad Ahsan Ahmer! How can I help you today?",
+      "original_message_id": "ACCD2A5275DC239790B361909F7CD088",
+      "generated_at": "2026-02-16T20:53:37.119333",
+      "status": "rejected",
+      "updated_at": "2026-02-16T20:54:18.847170"
+    },
+    {
+      "recipient": "status",
+      "message": "That's an interesting question! I'm currently running in fallback mode. Please set up the Claude API key for intelligent responses.",
+      "original_message_id": "3AC9717FDDCFFEF7452B",
+      "generated_at": "2026-02-16T20:54:18.876361",
+      "status": "failed",
+      "updated_at": "2026-02-16T20:54:49.609840"
+    },
+    {
+      "recipient": "265794403495986",
+      "message": "Thanks for your message! I received it but I'm running in fallback mode. Please configure the Claude API key for AI-powered responses.",
+      "original_message_id": "A5052C22708B9EEE98FDD2AF8309888A",
+      "generated_at": "2026-02-16T20:54:49.666949",
+      "status": "failed",
+      "updated_at": "2026-02-16T20:55:15.712970"
+    },
+    {
+      "recipient": "265794403495986",
+      "message": "Thanks for your message! I received it but I'm running in fallback mode. Please configure the Claude API key for AI-powered responses.",
+      "original_message_id": "A519D31B8A1766B39F976A96EBF28118",
+      "generated_at": "2026-02-16T20:55:15.754025",
+      "status": "pending",
+      "updated_at": "2026-02-16T20:55:15.754037"
+    }
+  ],
+  "generated_replies": [],
+  "statistics": {
+    "total_incoming": 1,
+    "total_sent": 1,
+    "total_failed": 0,
+    "total_approved": 1,
+    "total_rejected": 0,
+    "last_message_received": "2026-02-16T18:09:51.130177",
+    "last_message_sent": "2026-02-16T18:09:51.706468"
+  },
+  "metadata": {
+    "version": "1.0.0",
+    "created_at": "2024-02-16T17:30:00",
+    "last_updated": "2026-02-16T18:09:51.800105"
+  }
+}

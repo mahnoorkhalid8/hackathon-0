@@ -1,0 +1,36 @@
+# Scheduled Tasks Configuration
+
+scheduled_tasks:
+  - id: "daily_report"
+    name: "Daily Status Report"
+    type: "daily"
+    time: "09:00"
+    event_type: "scheduled_report"
+    enabled: true
+    parameters:
+      report_type: "daily"
+      template: "daily_status"
+    last_run: null
+
+  - id: "weekly_summary"
+    name: "Weekly Summary Report"
+    type: "weekly"
+    day: "monday"
+    time: "10:00"
+    event_type: "scheduled_report"
+    enabled: false
+    parameters:
+      report_type: "weekly"
+      template: "weekly_summary"
+    last_run: null
+
+  - id: "inbox_check"
+    name: "Check Inbox for Stale Items"
+    type: "interval"
+    interval_minutes: 30
+    event_type: "inbox_maintenance"
+    enabled: true
+    parameters:
+      action: "check_stale"
+      threshold_hours: 24
+    last_run: null

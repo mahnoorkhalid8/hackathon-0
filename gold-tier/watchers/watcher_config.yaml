@@ -1,0 +1,22 @@
+# Watcher Configuration
+
+# File patterns to watch
+file_patterns:
+  - "*.md"
+  - "*.txt"
+
+# Ignore patterns
+ignore_patterns:
+  - "*.tmp"
+  - "*.log"
+  - ".git/*"
+
+# Event filters
+filters:
+  min_file_size: 0  # bytes
+  max_file_size: 10485760  # 10MB
+
+# Debounce settings
+debounce:
+  enabled: true
+  window_seconds: 5

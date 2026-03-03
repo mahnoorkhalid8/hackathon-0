@@ -1,0 +1,112 @@
+# Skill: auto-respond
+
+AI-powered automatic WhatsApp message responder.
+
+## Description
+This skill monitors incoming WhatsApp messages and automatically generates and sends AI-powered responses using Claude API (or fallback responses).
+
+## Parameters
+
+### Optional
+- `human_approval` (boolean): Require approval before sending replies (default: false)
+- `poll_interval` (int): Seconds between message checks (default: 5)
+- `api_key` (string): Anthropic API key for Claude (optional)
+- `process_groups` (boolean): Respond in group chats (default: false)
+
+## Usage
+
+### Command Line
+```bash
+python scripts/auto_respond.py
+```
+
+### Python API
+```python
+from scripts.auto_respond import start_auto_responder
+
+start_auto_responder(
+    human_approval=True,
+    poll_interval=5
+)
+```
+
+### With Configuration
+```bash
+python scripts/auto_respond.py \
+  --human-approval \
+  --poll-interval 10 \
+  --no-groups
+```
+
+## Examples
+
+### Basic Auto-Responder
+```bash
+python scripts/auto_respond.py
+# Monitors and responds automatically
+```
+
+### With Human Approval
+```bash
+python scripts/auto_respond.py --human-approval
+# Shows each message and proposed reply for approval
+```
+
+### Custom Poll Interval
+```bash
+python scripts/auto_respond.py --poll-interval 10
+# Checks for messages every 10 seconds
+```
+
+## Features
+
+- **AI-Powered**: Uses Claude API for intelligent responses
+- **Fallback Mode**: Works without API key (simple responses)
+- **Human-in-the-Loop**: Optional approval before sending
+- **Message Logging**: All activity logged to whatsapp_state.json
+- **Conversation Context**: Maintains conversation history per contact
+- **Group Chat Filter**: Optionally skip group messages
+
+## Return Value
+
+Runs continuously until stopped (Ctrl+C). Logs:
+- Messages processed
+- Responses generated
+- Messages sent/failed
+- Statistics
+
+## Requirements
+
+- Node.js backend running (npm start)
+- WhatsApp authenticated
+- Python packages: requests, anthropic (optional)
+- Anthropic API key (optional, for AI responses)
+
+## Configuration
+
+Edit `../../whatsapp-node/whatsapp_state.json`:
+```json
+{
+  "human_in_the_loop": false,
+  "watcher_config": {
+    "poll_interval_seconds": 5,
+    "auto_reply_enabled": true,
+    "process_group_messages": false
+  }
+}
+```
+
+## Error Handling
+
+- Backend not running: Exits with error message
+- API key invalid: Falls back to simple responses
+- Connection lost: Retries automatically
+- Message send failed: Logs and continues
+
+## Notes
+
+- Press Ctrl+C to stop
+- Without API key: Uses keyword-based responses
+- With API key: Intelligent contextual responses
+- All messages logged for review
+- Session persists across restarts

@@ -1,0 +1,82 @@
+# Skill: view-contacts
+
+List and search WhatsApp contacts.
+
+## Description
+This skill allows you to view, search, and export your WhatsApp contacts list.
+
+## Parameters
+
+### Optional
+- `search` (string): Search query to filter contacts by name
+- `limit` (int): Maximum number of contacts to show (default: 50)
+- `export` (string): Export format (json, csv, or none)
+- `output` (string): Output file path for export
+
+## Usage
+
+### Command Line (Interactive)
+```bash
+python scripts/view_contacts.py
+```
+
+### Python API
+```python
+from scripts.view_contacts import view_contacts
+
+contacts = view_contacts(
+    search="john",
+    limit=20
+)
+```
+
+## Examples
+
+### List All Contacts
+```bash
+python scripts/view_contacts.py
+```
+
+### Search Contacts
+```bash
+python scripts/view_contacts.py --search "john"
+```
+
+### Export to JSON
+```bash
+python scripts/view_contacts.py --export json --output contacts.json
+```
+
+### Export to CSV
+```bash
+python scripts/view_contacts.py --export csv --output contacts.csv
+```
+
+## Return Value
+
+Returns a list of contact dictionaries with:
+- `id` (string): Contact ID
+- `name` (string): Contact name
+- `number` (string): Phone number
+- `isMyContact` (boolean): In phone contacts
+- `lastMessageTime` (int): Last message timestamp
+
+## Requirements
+
+- Node.js backend running
+- WhatsApp authenticated
+- Python packages: requests
+
+## Features
+
+- Browse all contacts
+- Search by name
+- Export to JSON/CSV
+- Shows recent conversations
+- Pagination support
+
+## Notes
+
+- Shows 100 most recent contacts
+- Sorted by last message time
+- Updates automatically

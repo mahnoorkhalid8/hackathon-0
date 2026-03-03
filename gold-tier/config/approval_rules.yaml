@@ -1,0 +1,53 @@
+# Approval Rules Configuration
+
+# Actions that can be auto-approved
+auto_approve:
+  - skill: "email_responder"
+    conditions:
+      sender_in_known_contacts: true
+      sentiment: ["positive", "neutral"]
+      no_attachments: true
+      no_financial_content: true
+
+  - skill: "data_analyzer"
+    conditions:
+      data_source: "local"
+      read_only: true
+
+  - action_type: "read"
+    scope: "memory/*"
+
+  - action_type: "log"
+    scope: "logs/*"
+
+# Actions that require human approval
+require_approval:
+  - any_mcp_call: true
+
+  - skill: "report_generator"
+    conditions:
+      data_source: "external"
+
+  - action_type: "write"
+    scope_outside: "memory/"
+
+  - action_type: "delete"
+    scope: "*"
+
+  - action_type: "send"
+    type: ["email", "message", "notification"]
+
+  - estimated_cost:
+      greater_than: 1.00  # USD
+
+  - confidence_level:
+      less_than: 80  # percentage
+
+# High-risk actions that require immediate human notification
+critical_approval:
+  - action_type: "system"
+    operations: ["shutdown", "restart", "config_change"]
+
+  - data_operation: "bulk_delete"
+
+  - external_integration: "new"

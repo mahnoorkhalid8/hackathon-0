@@ -1,0 +1,89 @@
+# Skill: check-status
+
+Check WhatsApp connection and session status.
+
+## Description
+This skill checks the WhatsApp connection status, account information, session validity, and message statistics.
+
+## Parameters
+
+### Optional
+- `detailed` (boolean): Show detailed statistics (default: false)
+- `json` (boolean): Output in JSON format (default: false)
+
+## Usage
+
+### Command Line
+```bash
+python scripts/check_status.py
+```
+
+### Python API
+```python
+from scripts.check_status import check_status
+
+status = check_status(detailed=True)
+```
+
+## Examples
+
+### Basic Status Check
+```bash
+python scripts/check_status.py
+```
+
+### Detailed Statistics
+```bash
+python scripts/check_status.py --detailed
+```
+
+### JSON Output
+```bash
+python scripts/check_status.py --json
+```
+
+## Return Value
+
+Returns a dictionary with:
+- `connected` (boolean): Backend connection status
+- `authenticated` (boolean): WhatsApp authentication status
+- `account` (dict): Account information (number, name, platform)
+- `session_valid` (boolean): Session validity
+- `statistics` (dict): Message statistics (if detailed=true)
+
+## Requirements
+
+- Node.js backend running
+- Python packages: requests
+
+## Features
+
+- Connection status
+- Account information
+- Session validity check
+- Message statistics
+- JSON export
+
+## Output Example
+
+```
+WhatsApp Status Check
+=====================
+Connection:     Connected
+Authenticated:  Yes
+Account:        Mahnoor (923332455342)
+Platform:       iPhone
+Session Valid:  Yes
+
+Statistics:
+  Total Incoming:  150
+  Total Sent:      145
+  Total Failed:    5
+  Success Rate:    96.7%
+```
+
+## Notes
+
+- Quick health check
+- No authentication required
+- Safe to run anytime

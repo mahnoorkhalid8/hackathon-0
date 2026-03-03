@@ -1,0 +1,103 @@
+# Skill: manage-labels
+
+Organize emails with Gmail labels (folders).
+
+## Description
+This skill allows you to create, delete, list, and apply labels to emails for better organization.
+
+## Parameters
+
+### Optional
+- `action` (string): Action to perform (list, create, delete, apply, remove)
+- `label` (string): Label name
+- `email_id` (string): Email message ID (for apply/remove)
+- `color` (string): Label color (for create)
+
+## Usage
+
+### Command Line (Interactive)
+```bash
+python scripts/manage_labels.py
+```
+
+### Python API
+```python
+from scripts.manage_labels import manage_labels
+
+# List all labels
+labels = manage_labels(action="list")
+
+# Create label
+manage_labels(action="create", label="Work")
+
+# Apply label to email
+manage_labels(action="apply", label="Work", email_id="msg123")
+```
+
+## Examples
+
+### List All Labels
+```bash
+python scripts/manage_labels.py --action list
+```
+
+### Create New Label
+```bash
+python scripts/manage_labels.py --action create --label "Important"
+```
+
+### Apply Label to Email
+```bash
+python scripts/manage_labels.py \
+  --action apply \
+  --label "Work" \
+  --email-id "18c5f2a3b4d5e6f7"
+```
+
+### Remove Label from Email
+```bash
+python scripts/manage_labels.py \
+  --action remove \
+  --label "Work" \
+  --email-id "18c5f2a3b4d5e6f7"
+```
+
+### Delete Label
+```bash
+python scripts/manage_labels.py --action delete --label "OldLabel"
+```
+
+## Return Value
+
+Depends on action:
+- `list`: Returns list of label dictionaries
+- `create`: Returns created label info
+- `delete`: Returns success boolean
+- `apply/remove`: Returns updated email info
+
+## Requirements
+
+- Gmail API credentials
+- Authenticated token
+- Python packages: google-auth, google-api-python-client
+
+## Features
+
+- List all labels
+- Create custom labels
+- Delete labels
+- Apply labels to emails
+- Remove labels from emails
+- Bulk operations support
+
+## Label Colors
+
+Available colors for labels:
+- red, orange, yellow, green, blue, purple, gray
+
+## Notes
+
+- System labels (INBOX, SENT, etc.) cannot be deleted
+- Label names are case-sensitive
+- Maximum 500 labels per account
+- Bulk apply/remove supported

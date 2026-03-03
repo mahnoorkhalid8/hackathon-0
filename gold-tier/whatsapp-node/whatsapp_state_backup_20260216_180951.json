@@ -1,0 +1,66 @@
+{
+  "session": {
+    "authenticated": true,
+    "last_authenticated": "2026-02-16T18:09:50.720168",
+    "session_valid": true,
+    "session_path": ".wwebjs_auth",
+    "requires_qr": false,
+    "last_validation": "2026-02-16T18:09:50.720134",
+    "validation_interval_minutes": 30
+  },
+  "account_info": {
+    "number": "923332455342",
+    "name": "Mahnoor",
+    "platform": "iphone",
+    "last_updated": "2026-02-16T18:09:50.720178"
+  },
+  "api_endpoint": "http://localhost:3000/api/whatsapp",
+  "human_in_the_loop": true,
+  "watcher_config": {
+    "poll_interval_seconds": 5,
+    "auto_reply_enabled": true,
+    "process_group_messages": false,
+    "max_messages_per_poll": 10
+  },
+  "retry_config": {
+    "max_retries": 3,
+    "retry_delay_seconds": 2,
+    "exponential_backoff": true
+  },
+  "messages": {
+    "incoming": [],
+    "pending_approval": [],
+    "approved": [],
+    "rejected": [],
+    "sent": [
+      {
+        "id": "msg123",
+        "from": "1234567890@c.us",
+        "body": "Hello!",
+        "fromName": "Test User",
+        "timestamp": "2026-02-16T18:09:51.130146",
+        "status": "sent",
+        "status_updated_at": "2026-02-16T18:09:51.706437"
+      }
+    ],
+    "failed": []
+  },
+  "message_log": [],
+  "incoming_messages": [],
+  "pending_replies": [],
+  "generated_replies": [],
+  "statistics": {
+    "total_incoming": 1,
+    "total_sent": 1,
+    "total_failed": 0,
+    "total_approved": 1,
+    "total_rejected": 0,
+    "last_message_received": "2026-02-16T18:09:51.130177",
+    "last_message_sent": "2026-02-16T18:09:51.706468"
+  },
+  "metadata": {
+    "version": "1.0.0",
+    "created_at": "2024-02-16T17:30:00",
+    "last_updated": "2026-02-16T18:09:51.800105"
+  }
+}

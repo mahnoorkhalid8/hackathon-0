@@ -1,0 +1,102 @@
+# Skill: post-linkedin
+
+Post content to LinkedIn with optional image support.
+
+## Description
+This skill allows you to post content to LinkedIn with support for text content and optional image attachments. Requires LinkedIn API authentication.
+
+## Parameters
+
+### Required
+- `content` (string): The content to post to LinkedIn
+
+### Optional
+- `image_url` (string): URL or file path to an image to include with the post
+- `person_id` (string): LinkedIn person ID to post as (defaults to configured value)
+
+## Usage
+
+### Command Line
+```bash
+python scripts/post_linkedin.py --content "Your LinkedIn post content here"
+```
+
+### Python API
+```python
+from scripts.post_linkedin import post_linkedin
+
+result = post_linkedin(
+    content="Hello LinkedIn! This is my post",
+    image_url="path/to/image.jpg"  # Optional
+)
+```
+
+### Interactive Mode
+```bash
+python scripts/post_linkedin.py --content "Your content" --image "image_path"
+```
+
+## Examples
+
+### Simple Post
+```bash
+python scripts/post_linkedin.py \
+  --content "Excited to share my latest project update!"
+```
+
+### Post with Image
+```bash
+python scripts/post_linkedin.py \
+  --content "Check out my new design work" \
+  --image "images/project_image.jpg"
+```
+
+### Using Python API
+```python
+from scripts.post_linkedin import post_linkedin
+
+result = post_linkedin(
+    content="Just finished an amazing project!",
+    image_url="https://example.com/image.jpg"
+)
+
+if result['success']:
+    print(f"Post successful! ID: {result['message_id']}")
+else:
+    print(f"Post failed: {result['error']}")
+```
+
+## Return Value
+
+Returns a dictionary with:
+- `success` (boolean): Whether the post was successful
+- `message_id` (string): LinkedIn message ID if successful
+- `message` (string): Success message
+- `error` (string): Error message if failed
+
+## Requirements
+
+- LinkedIn API credentials (access token)
+- Valid LinkedIn person ID configured
+- Python packages: requests, python-dotenv
+
+## Features
+
+- **Text posts**: Create simple text-based LinkedIn posts
+- **Image support**: Upload and attach images to posts
+- **Error handling**: Comprehensive error handling for API issues
+- **Content validation**: Ensures posts meet LinkedIn requirements
+
+## Error Handling
+
+- Invalid access token: Returns error with authentication instructions
+- Missing person ID: Returns error with configuration instructions
+- Image upload failed: Returns error with details
+- API quota exceeded: Returns error with retry suggestion
+
+## Notes
+
+- Maximum image size: 5MB (LinkedIn requirement)
+- Posts are published as the configured LinkedIn profile
+- Requires proper API authentication setup
+- Image processing may take 5-10 seconds after upload

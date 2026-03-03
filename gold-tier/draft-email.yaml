@@ -1,0 +1,19 @@
+# Email Draft Template
+# Edit this file with your email content, then run: python send_custom_email.py draft-email.yaml
+
+# Recipient details
+to: maryamkhalid261453@gmail.com
+subject: Hackathon 0 Silver tier update
+
+# Email content
+recipient_name: Maryam!
+opening: Hi, how are you?
+body: |
+  Done Gamil implementation part!!!!
+    I wanted to share some exciting news with you regarding the Hackathon 0 silver tier update. We have made significant progress and have some great updates to share with you.
+closing: Best wishes
+
+# Sender details (optional - leave empty if not needed)
+sender_name: Mahnoor Khalid
+sender_title: ""
+company_name: ""
