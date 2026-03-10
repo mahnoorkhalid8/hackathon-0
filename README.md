@@ -83,8 +83,10 @@ python ig_workflow_manager.py
 ```
 
 ### Twitter Commands
+```powershell
 cd twitter
 python twitter_poster_improved.py
+```
 ---
 
 **Terminal:** PowerShell or CMD
