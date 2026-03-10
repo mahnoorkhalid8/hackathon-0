@@ -54,7 +54,9 @@ python send_message.py
 cd linkedin
 python post_linkedin.py
 ```
+---
 
+## Gold Tier
 ### Facebook Commands
 ```powershell
 
@@ -79,6 +81,10 @@ ngrok http 8000
 cd instagram
 python ig_workflow_manager.py
 ```
+
+### Twitter Commands
+cd twitter
+python twitter_poster_improved.py
 ---
 
 **Terminal:** PowerShell or CMD
