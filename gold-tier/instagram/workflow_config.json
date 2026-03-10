@@ -1,0 +1,16 @@
+{
+  "drafts_folder": "workflow/Drafts",
+  "approved_folder": "workflow/Approved",
+  "public_folder": "workflow/Public",
+  "done_folder": "workflow/Done",
+  "failed_folder": "workflow/Failed",
+  "public_url_base": "https://plaided-straitly-franco.ngrok-free.dev",
+  "supported_image_formats": [
+    ".jpg",
+    ".jpeg",
+    ".png"
+  ],
+  "caption_format": ".md",
+  "auto_post": true,
+  "dry_run": false
+}
