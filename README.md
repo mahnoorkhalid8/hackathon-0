@@ -54,6 +54,31 @@ python send_message.py
 cd linkedin
 python post_linkedin.py
 ```
+
+### Facebook Commands
+```powershell
+
+cd facebook
+python facebook_watcher.py
+```
+
+### Instagram Commands
+```powershell
+
+cd instagram
+cd workflow
+cd public
+# run ngrok to publically push image on server
+# terminal 1
+python -m http.server 8001      
+
+#terminal 2 (powershell) ----> to run ngrok
+ngrok http 8000
+
+#terminal 3
+cd instagram
+python ig_workflow_manager.py
+```
 ---
 
 **Terminal:** PowerShell or CMD
